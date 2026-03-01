@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+﻿<!DOCTYPE html>
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,142 +8,53 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/nav.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/footer.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/carousel.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/section.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/home.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/about.css') }}">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    {% include "_tailwind_head.html" %}
 </head>
-<body>
-<!-- Navbar -->
-<div class="base_nav">
-    <nav class="navbar navbar-expand-lg fixed-top navbar-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="{{ url_for('home_fr') }}">
-                <img src="https://i.postimg.cc/1zZg1sp0/cosem-logo-removebg-preview.png" alt="" width="90" height="75" class="d-inline-block align-text-top logo">
-                COSEM
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarScroll">
-                <ul class="navbar-nav my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="{{ url_for('about_fr') }}">À propos</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle no-arrow" href="#" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                            <button class="services-button">
-                                Services
-                            </button>
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <li><a class="dropdown-item" href="{{ url_for('public_dashboard_fr') }}">Tableau de bord public</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('login_fr') }}">Tableau de bord privé</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('contact_fr') }}">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="{{ url_for('gallery_fr') }}">Galerie</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="{{ url_for('Cereals_Catalog_fr') }}">Catalogue Céréales</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="d-flex">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('register_fr') }}"><strong>S'inscrire</strong></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('login_fr') }}"><strong>Se connecter</strong></a>
-                        </li>
-                    </ul>
-                    <div class="nav-wrapper">
-                        <div class="sl-nav">
-                            <ul>
-                            <li><b>Français</b> <i class="fa fa-angle-down" aria-hidden="true"></i>
-                                <div class="triangle"></div>
-                                <ul>
-                                <li><a href="#"><i class="sl-flag flag-de" ></i> <span class="active">Français</span></a></li>
-                                <li><a href="{{ url_for('home') }}"><i class="sl-flag flag-usa" href="#"></i> <span>Anglais</span></a></li>
-                                </ul>
-                            </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-        </div>
-    </nav>
-</div>
+<body class="marketing-shell bg-grain-paper text-grain-ink antialiased">
+    {% set home_endpoint = 'main.home_fr' %}
+    {% set about_endpoint = 'main.about_fr' %}
+    {% set contact_endpoint = 'main.contact_fr' %}
+    {% set gallery_endpoint = 'main.gallery_fr' %}
+    {% set catalog_endpoint = 'main.cereals_catalog_fr' %}
+    {% set public_dashboard_endpoint = 'dashboard.public_dashboard_fr' %}
+    {% set private_dashboard_endpoint = 'auth.login_fr' %}
+    {% set register_endpoint = 'auth.register_fr' %}
+    {% set login_endpoint = 'auth.login_fr' %}
+    {% set about_label = 'À propos' %}
+    {% set services_label = 'Services' %}
+    {% set public_dashboard_label = 'Tableau de bord public' %}
+    {% set private_dashboard_label = 'Tableau de bord privé' %}
+    {% set contact_label = 'Contact' %}
+    {% set gallery_label = 'Galerie' %}
+    {% set catalog_label = 'Catalogue Céréales' %}
+    {% set register_label = "S'inscrire" %}
+    {% set login_label = 'Se connecter' %}
+    {% set current_language_label = 'Français' %}
+    {% set secondary_language_endpoint = none %}
+    {% set secondary_language_label = 'Français' %}
+    {% set primary_language_endpoint = 'main.home' %}
+    {% set primary_language_label = 'Anglais' %}
+    {% include "_marketing_nav.html" %}
 
     {% block content %}{% endblock %}
 
-    <!-- Footer -->
-
-    <footer class="footer p-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3">
-                    <h2>COSEM</h2>
-                </div>
-                <div class="col-md-3">
-                    <h5>À propos</h5>
-                    <p>
-                        La COSEM est dédiée à soutenir les agriculteurs avec les dernières informations, 
-                        outils et ressources.
-                         Notre mission est d'habiliter les agriculteurs
-                          à atteindre une productivité et une durabilité accrues.
-                    </p>
-                </div>
-                <div class="col-md-3">
-                    <h5>Contactez-nous</h5>
-                    <ul class="list-unstyled">
-                        <li>E-mail: cosem@planet.tn</li>
-                        <li>Téléphone: 71 607 117</li>
-                        <li>Fax: 71 606 917</li>
-                        <a href="https://maps.app.goo.gl/B7EewytZyFX2fZBc7">
-                            <li>Adresse: Siège Social: 46, Rue des Travailleurs - 2010 Manouba, Tunisie</li>
-                        </a>
-                    </ul>
-                </div>
-                <div class="col-md-3">
-                    <h5>
-                    Suivez-nous :
-                    <ul class="list-inline footer-links">
-                        <li class="list-inline-item">
-                            <a href="https://www.facebook.com/semencescosemtunisie">
-                                <i class="fab fa-facebook"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    </h5>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-md-6">
-                    <p>© 2024 COSEM. Tous droits réservés.</p>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-12 text-end">
-                    <p style="color: #303030 !important;"><small>Ce site web a été développé par Slim Dridi et Nada Naffeti, 
-                        avec la supervision de l'encadrante à l'ESSAI Ines Abdeljaoued-Tej.</small></p>
-                </div>
-            </div>
-        </div>
-    </footer>
+    {% set footer_about_title = 'À propos' %}
+    {% set footer_about_text = "La COSEM est dédiée à soutenir les agriculteurs avec les dernières informations, outils et ressources. Notre mission est d'habiliter les agriculteurs à atteindre une productivité et une durabilité accrues." %}
+    {% set footer_contact_title = 'Contactez-nous' %}
+    {% set footer_phone_label = 'Téléphone' %}
+    {% set footer_address_label = 'Adresse' %}
+    {% set footer_website_label = none %}
+    {% set footer_follow_label = 'Suivez-nous :' %}
+    {% set footer_copyright = '© 2024 COSEM. Tous droits réservés.' %}
+    {% set footer_credit = "Ce site web a été développé par Slim Dridi et Nada Naffeti, avec la supervision de l'encadrante à l'ESSAI Ines Abdeljaoued-Tej." %}
+    {% include "_marketing_footer.html" %}
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

@@ -81,7 +81,7 @@
                         </div>
                         <div class="form-group form-button">
                             {{ form.submit(class="form-submit") }}
-                            <a href="{{ url_for('home') }}">
+                            <a href="{{ url_for('main.home') }}">
                                 <button type="button" class="button-36 register">Home</button>
                             </a>
                         </div>
@@ -89,7 +89,7 @@
                 </div>
                 <div class="signup-image">
                     <figure><img src="https://i.postimg.cc/QxS7z4Zy/wheatt.jpg" alt="sing up image"></figure>
-                    <a href="{{ url_for('login') }}" class="signup-image-link">I am already member</a>
+                    <a href="{{ url_for('auth.login') }}" class="signup-image-link">I am already member</a>
                 </div>
             </div>
         </div>

@@ -59,3 +59,70 @@
         flex: 1;
     }
 }
+
+/* Shared visual refresh */
+:root {
+    --grain-ink: #1b2a1f;
+    --grain-muted: #5f6f63;
+    --grain-soft: #f4efe2;
+    --grain-paper: #fbf8f1;
+    --grain-field: #6e8b3d;
+    --grain-deep: #27452c;
+    --grain-gold: #d9a441;
+    --grain-line: rgba(39, 69, 44, 0.14);
+    --grain-shadow: 0 20px 60px rgba(28, 42, 31, 0.12);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body.marketing-shell,
+body.marketing-shell html {
+    font-family: "Manrope", sans-serif;
+    color: var(--grain-ink);
+    background:
+        radial-gradient(circle at top left, rgba(217, 164, 65, 0.16), transparent 30%),
+        radial-gradient(circle at top right, rgba(110, 139, 61, 0.18), transparent 32%),
+        linear-gradient(180deg, #f7f1e4 0%, #fcfaf4 38%, #f6f2e8 100%);
+}
+
+.marketing-shell h1,
+.marketing-shell h2,
+.marketing-shell h3,
+.marketing-shell h4,
+.marketing-shell h5,
+.marketing-shell h6 {
+    font-family: "Space Grotesk", sans-serif;
+    letter-spacing: -0.03em;
+}
+
+.marketing-shell p {
+    color: var(--grain-muted);
+}
+
+.marketing-shell .container {
+    width: min(1120px, calc(100% - 2rem));
+}
+
+.marketing-shell .section-kicker,
+.marketing-shell .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 0.9rem;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(16px);
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.marketing-shell .section-intro {
+    max-width: 760px;
+    margin: 0 auto 2.5rem;
+    text-align: center;
+}

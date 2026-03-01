@@ -1,0 +1,70 @@
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .tw-page-shell {
+    @apply bg-grain-paper text-grain-ink;
+  }
+
+  .tw-page-container {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .tw-shell-card {
+    @apply rounded-[28px] border border-grain-line/70 bg-white/85 shadow-card backdrop-blur;
+  }
+
+  .tw-primary-btn {
+    @apply inline-flex items-center justify-center rounded-full bg-gradient-to-r from-grain-gold to-[#e7b54a] px-6 py-3 font-bold text-grain-ink shadow-card transition hover:-translate-y-0.5 hover:shadow-grain;
+  }
+
+  .tw-pill-link {
+    @apply inline-flex items-center justify-center rounded-full border border-grain-line/60 px-4 py-2 font-bold text-grain-deep transition hover:bg-grain-deep hover:text-white;
+  }
+
+  .tw-section-kicker {
+    @apply inline-flex items-center rounded-full bg-grain-deep/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.24em] text-grain-deep;
+  }
+
+  .tw-section-heading {
+    @apply font-display text-4xl font-bold tracking-tight text-grain-ink sm:text-5xl;
+  }
+
+  .tw-section-copy {
+    @apply text-lg leading-8 text-grain-muted;
+  }
+
+  .tw-grid-card {
+    @apply tw-shell-card p-8 transition hover:-translate-y-1 hover:shadow-grain;
+  }
+
+  .hero-slideshow {
+    @apply overflow-hidden;
+  }
+
+  .hero-slide {
+    position: absolute;
+    inset: -2%;
+    opacity: 0;
+    transform: none;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: saturate(1.04) contrast(1.02);
+    transition:
+      opacity 1.8s ease-in-out,
+      filter 1.8s ease-in-out;
+    will-change: opacity, filter;
+  }
+
+  .hero-slide.is-active {
+    opacity: 1;
+    filter: saturate(1.1) contrast(1.04);
+  }
+
+  .hero-shade {
+    background:
+      linear-gradient(135deg, rgba(17, 31, 20, 0.34), rgba(17, 31, 20, 0.58)),
+      linear-gradient(180deg, rgba(19, 35, 24, 0.22), rgba(19, 35, 24, 0.72));
+  }
+}

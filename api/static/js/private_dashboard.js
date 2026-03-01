@@ -337,6 +337,7 @@ window.onload = function() {
         // Redirect to the results page with data in URL
         window.location.href = `/yourdash_fr?${queryString}`;
     });
-    
+
+
     
     

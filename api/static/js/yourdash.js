@@ -96,7 +96,7 @@ async function createBarChart() {
 
     const barData = [{
         x: types,
-        y: quantites,
+        y: rendement,
         type: 'bar',
         marker: {
             color: colors,

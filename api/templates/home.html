@@ -3,77 +3,180 @@
 {% block title %}Home Page{% endblock %}
 
 {% block content %}
-
-    <main class="main-content" id="home">
-        <section class="hero">
-            <div class="hero-overlay">
-                <div class="hero-text">
-                    <h2>Explore Tunisia's Wheat Statistics</h2>
-                    <p>Access public infographics and generate custom data analysis on Tunisia's wheat.</p>
-                    <a href="#about"><button class="cta-button">Get Started</button></a>
+    <main class="tw-page-shell overflow-hidden" id="home">
+        <section class="hero relative isolate min-h-[92vh] overflow-hidden bg-cover bg-center">
+            <div class="hero-slideshow absolute inset-0">
+                <div class="hero-slide is-active" style="background-image: url('https://i.postimg.cc/XJXGG887/crop-fuild.jpg');"></div>
+                <div class="hero-slide" style="background-image: url('https://i.postimg.cc/VNKDnmx9/crop-fuild2-1.jpg');"></div>
+                <div class="hero-slide" style="background-image: url('https://i.postimg.cc/PxcyVKrP/crop-fuild2-2.jpg');"></div>
+            </div>
+            <div class="hero-shade absolute inset-0"></div>
+            <div class="tw-page-container relative flex min-h-[92vh] items-center px-4 pb-16 pt-32 sm:px-6 lg:px-8 lg:pt-36">
+                <div class="w-full">
+                    <div class="mx-auto max-w-3xl text-center">
+                        <span class="inline-flex rounded-full border border-white/15 bg-white/10 px-4 py-2 font-display text-xs font-bold uppercase tracking-[0.28em] text-white/80 backdrop-blur">
+                            Agricultural Intelligence for Tunisia
+                        </span>
+                        <h1 class="mt-6 max-w-4xl font-display text-5xl font-bold tracking-[-0.05em] text-white sm:text-6xl lg:text-7xl">
+                            Explore Tunisia's wheat story with sharper data.
+                        </h1>
+                        <p class="mt-6 max-w-2xl text-lg leading-8 text-white/78 sm:text-xl">
+                            Access public infographics, compare cereal groups, and move into a private workspace to analyze your own land with a cleaner workflow.
+                        </p>
+                        <div class="mt-8 flex flex-wrap gap-4">
+                            <a href="#about" class="tw-primary-btn">Get Started</a>
+                            <a href="{{ url_for('dashboard.public_dashboard') }}" class="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-6 py-3 font-bold text-white backdrop-blur transition hover:bg-white/16">
+                                View Public Dashboard
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="about" id="about">
-            <div class="container">
-                <h2>About Our Service</h2>
-                <p>Our platform provides comprehensive data and tools to help you analyze wheat production and types in Tunisia. Whether you are a farmer, researcher, or policy maker, our dashboards offer the insights you need to understand the dynamics of wheat production, consumption, and exportation in Tunisia. Discover new trends and make data-driven decisions with ease.</p>
-            </div>
-        </section>
-
-        <section class="features">
-            <div class="container">
-                <div class="feature" id="public-dashboard">
-                    <h3>Public Dashboard</h3>
-                    <p>View detailed infographics on various types of wheat grown in Tunisia, including production statistics, regional distributions, and historical trends. Our interactive graphs allow you to delve deep into the data, gaining valuable insights into market dynamics and growth patterns.</p>
-                    <a href="{{url_for('public_dashboard')}}">
-                      <button class="cta-button">Get Started</button>
-                    </a>
-                </div>
-                <div class="feature" id="private-dashboard">
-                    <h3>Private Dashboard</h3>
-                    <p>Input your own data and generate personalized analysis graphs. Our tools help you track your wheat production, compare it with regional averages, and optimize your farming strategies. Whether you are looking to improve yield, reduce costs, or increase sustainability, our dashboard provides the analytics you need.</p>
-                    <a href="{{url_for('login')}}">
-                      <button class="cta-button">Get Started</button>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section class="benefits" id="benefits">
-            <div class="container">
-                <h2>Why Choose Our Dashboard?</h2>
-                <ul>
-                    <li><strong>Real-Time Data:</strong> Get the latest updates and insights with real-time data feeds.</li>
-                    <li><strong>Customizable Graphs:</strong> Tailor your data visualizations to fit your specific needs.</li>
-                    <li><strong>User-Friendly Interface:</strong> Enjoy a smooth and intuitive user experience.</li>
-                    <li><strong>Secure Data Handling:</strong> Your data privacy and security are our top priority.</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="testimonials" id="testimonials">
-            <div class="container">
-                <h2>What Our Users Say</h2>
-                <div class="testimonial">
-                    <p>"The Agriculture Dashboard has transformed the way I manage my farm. The insights and data are invaluable!"</p>
-                    <p>- Ahmed M., Farmer</p>
-                </div>
-                <div class="testimonial">
-                    <p>"A fantastic tool for anyone in the agriculture sector. It's easy to use and incredibly informative."</p>
-                    <p>- Fatima B., Researcher</p>
+        <section class="relative py-24" id="about">
+            <div class="absolute inset-x-0 top-0 h-40 bg-[radial-gradient(circle_at_top,rgba(213,166,62,0.15),transparent_60%)]"></div>
+            <div class="tw-page-container relative">
+                <div class="tw-shell-card p-8 sm:p-10 lg:p-14">
+                    <span class="tw-section-kicker">About</span>
+                    <div class="mt-6 grid gap-8 lg:grid-cols-[minmax(0,0.95fr)_minmax(280px,0.75fr)] lg:items-start">
+                        <div>
+                            <h2 class="tw-section-heading">A data platform built for wheat production decisions.</h2>
+                            <p class="tw-section-copy mt-6">
+                                Our platform gives farmers, researchers, and policy teams a single place to explore wheat production, consumption, and export patterns across Tunisia. The goal is simple: turn scattered agricultural data into decisions you can act on.
+                            </p>
+                        </div>
+                        <div class="rounded-[24px] border border-grain-line/60 bg-grain-soft p-6">
+                            <p class="font-display text-sm font-bold uppercase tracking-[0.24em] text-grain-deep">What you get</p>
+                            <ul class="mt-4 space-y-4 text-sm leading-7 text-grain-muted">
+                                <li>Regional visuals for cereal production and yield trends.</li>
+                                <li>A private analysis workspace for your own land data.</li>
+                                <li>Clear dashboards designed for repeated operational use.</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="cta">
-            <div class="container">
-                <h2>Ready to Get Started?</h2>
-                <p>Join our community of farmers and agricultural experts. Access detailed data, generate custom analysis, and optimize your wheat production with ease. Click the button below to sign up and start using our services today.</p>
-                <a href="{{url_for('login')}}">
-                  <button class="cta-button">Sign Up Now</button>                
-                </a>
+        <section class="py-24">
+            <div class="tw-page-container">
+                <div class="mx-auto max-w-3xl text-center">
+                    <span class="tw-section-kicker">Dashboards</span>
+                    <h2 class="tw-section-heading mt-6">Choose the workflow that fits your data.</h2>
+                    <p class="tw-section-copy mt-5">
+                        Start with a public overview of Tunisia's wheat indicators, or move directly into the private workspace to study your own land and production results.
+                    </p>
+                </div>
+                <div class="mt-12 grid gap-6 lg:grid-cols-2">
+                    <article class="tw-grid-card relative overflow-hidden">
+                        <div class="absolute right-0 top-0 h-40 w-40 rounded-full bg-grain-gold/10 blur-3xl"></div>
+                        <span class="tw-section-kicker">Public</span>
+                        <h3 class="mt-6 font-display text-3xl font-bold tracking-tight text-grain-ink">Public Dashboard</h3>
+                        <p class="mt-5 text-base leading-8 text-grain-muted">
+                            View detailed infographics on the main wheat groups cultivated in Tunisia, including production totals, regional distributions, and historical patterns.
+                        </p>
+                        <ul class="mt-6 space-y-3 text-sm leading-7 text-grain-muted">
+                            <li>National crop production views</li>
+                            <li>Regional comparisons and long-view trends</li>
+                            <li>Interactive visuals for quick exploration</li>
+                        </ul>
+                        <a href="{{ url_for('dashboard.public_dashboard') }}" class="tw-primary-btn mt-8">Explore Public Data</a>
+                    </article>
+                    <article class="tw-grid-card relative overflow-hidden border-grain-deep/15 bg-[linear-gradient(180deg,rgba(255,250,240,0.96),rgba(243,239,228,0.9))]">
+                        <div class="absolute bottom-0 right-0 h-48 w-48 rounded-full bg-grain-field/10 blur-3xl"></div>
+                        <span class="tw-section-kicker">Private</span>
+                        <h3 class="mt-6 font-display text-3xl font-bold tracking-tight text-grain-ink">Private Dashboard</h3>
+                        <p class="mt-5 text-base leading-8 text-grain-muted">
+                            Input your own values, draw your land, and generate analysis graphs that help you compare production, yield, and planted area in one place.
+                        </p>
+                        <ul class="mt-6 space-y-3 text-sm leading-7 text-grain-muted">
+                            <li>Field-specific input and mapping</li>
+                            <li>Private charts built from your own numbers</li>
+                            <li>A better base for operational decisions</li>
+                        </ul>
+                        <a href="{{ url_for('auth.login') }}" class="tw-primary-btn mt-8">Open Private Workspace</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24">
+            <div class="tw-page-container">
+                <div class="rounded-[32px] bg-gradient-to-br from-grain-deep to-grain-field px-6 py-10 text-white shadow-grain sm:px-10 lg:px-14 lg:py-14">
+                    <div class="grid gap-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:items-start">
+                        <div>
+                            <span class="inline-flex rounded-full border border-white/35 bg-white/20 px-3 py-1 text-xs font-bold uppercase tracking-[0.24em] text-white">
+                                Benefits
+                            </span>
+                            <h2 class="mt-6 font-display text-4xl font-bold tracking-tight text-white sm:text-5xl">Why teams keep returning to this dashboard.</h2>
+                            <p class="mt-5 max-w-xl text-lg leading-8 text-white">
+                                The focus is not just on showing charts. It is on making crop information easier to navigate, compare, and reuse.
+                            </p>
+                        </div>
+                        <div class="grid gap-4 sm:grid-cols-2">
+                            <div class="rounded-[24px] border border-white/28 bg-white/20 p-5 backdrop-blur">
+                                <h3 class="font-display text-xl font-bold text-white">Real-Time View</h3>
+                                <p class="mt-3 text-sm leading-7 text-white">Get updated crop visuals and a faster read on production changes.</p>
+                            </div>
+                            <div class="rounded-[24px] border border-white/28 bg-white/20 p-5 backdrop-blur">
+                                <h3 class="font-display text-xl font-bold text-white">Flexible Analysis</h3>
+                                <p class="mt-3 text-sm leading-7 text-white">Compare planted area, collected quantities, and yield without fighting the interface.</p>
+                            </div>
+                            <div class="rounded-[24px] border border-white/28 bg-white/20 p-5 backdrop-blur">
+                                <h3 class="font-display text-xl font-bold text-white">Clear Navigation</h3>
+                                <p class="mt-3 text-sm leading-7 text-white">Move between public insight and private analysis in a predictable flow.</p>
+                            </div>
+                            <div class="rounded-[24px] border border-white/28 bg-white/20 p-5 backdrop-blur">
+                                <h3 class="font-display text-xl font-bold text-white">Data Safety</h3>
+                                <p class="mt-3 text-sm leading-7 text-white">Keep your own records private while still using the broader public indicators.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24">
+            <div class="tw-page-container">
+                <div class="mx-auto max-w-3xl text-center">
+                    <span class="tw-section-kicker">Feedback</span>
+                    <h2 class="tw-section-heading mt-6">What users say after putting it to work.</h2>
+                </div>
+                <div class="mt-12 grid gap-6 lg:grid-cols-2">
+                    <blockquote class="tw-grid-card">
+                        <p class="text-lg leading-8 text-grain-ink">
+                            "The Agriculture Dashboard has transformed the way I manage my farm. The insights and data are invaluable."
+                        </p>
+                        <footer class="mt-6 font-bold text-grain-deep">Ahmed M., Farmer</footer>
+                    </blockquote>
+                    <blockquote class="tw-grid-card">
+                        <p class="text-lg leading-8 text-grain-ink">
+                            "A fantastic tool for anyone in the agriculture sector. It's easy to use and incredibly informative."
+                        </p>
+                        <footer class="mt-6 font-bold text-grain-deep">Fatima B., Researcher</footer>
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
+        <section class="pb-24">
+            <div class="tw-page-container">
+                <div class="rounded-[32px] border border-grain-line/60 bg-[linear-gradient(135deg,rgba(255,250,240,0.98),rgba(241,236,223,0.96))] px-6 py-10 shadow-card sm:px-10 lg:px-14 lg:py-14">
+                    <div class="grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
+                        <div class="max-w-3xl">
+                            <span class="tw-section-kicker">Get started</span>
+                            <h2 class="tw-section-heading mt-6">Ready to move from overview to action?</h2>
+                            <p class="tw-section-copy mt-5">
+                                Join the platform, access the dashboards, and start working with production data that is easier to read, compare, and apply.
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-4">
+                            <a href="{{ url_for('auth.login') }}" class="tw-primary-btn">Sign Up Now</a>
+                            <a href="{{ url_for('dashboard.public_dashboard') }}" class="tw-pill-link bg-white/70 px-6 py-3">See Public Dashboard</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>

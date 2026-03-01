@@ -1,0 +1,35 @@
+<script>
+    tailwind = {
+        config: {
+            corePlugins: {
+                preflight: false
+            },
+            theme: {
+                extend: {
+                    colors: {
+                        grain: {
+                            paper: "#f8f4e9",
+                            soft: "#fffaf0",
+                            line: "#d7ccb1",
+                            ink: "#1d2b1f",
+                            muted: "#617363",
+                            field: "#3d7e50",
+                            deep: "#234f33",
+                            gold: "#d5a63e"
+                        }
+                    },
+                    fontFamily: {
+                        sans: ["Manrope", "sans-serif"],
+                        display: ["Space Grotesk", "sans-serif"]
+                    },
+                    boxShadow: {
+                        grain: "0 24px 48px rgba(26, 47, 31, 0.12)",
+                        card: "0 18px 40px rgba(31, 47, 33, 0.10)"
+                    }
+                }
+            }
+        }
+    };
+</script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/tailwind.css') }}">

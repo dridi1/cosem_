@@ -1,0 +1,13 @@
+{
+  "name": "cosem_",
+  "version": "1.0.0",
+  "description": "Flask application for COSEM's public pages, authentication flows, and private crop analysis dashboards.",
+  "private": true,
+  "scripts": {
+    "build:tailwind": "tailwindcss -c tailwind.config.js -i ./api/static/css/tailwind.input.css -o ./api/static/css/tailwind.css --minify",
+    "watch:tailwind": "tailwindcss -c tailwind.config.js -i ./api/static/css/tailwind.input.css -o ./api/static/css/tailwind.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}

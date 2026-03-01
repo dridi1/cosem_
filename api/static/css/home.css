@@ -308,3 +308,308 @@ body, html {
         flex: 1 1 100%;
     }
 }
+
+/* Marketing page refresh */
+.marketing-shell .hero {
+    min-height: 100vh;
+    padding: 8rem 1.5rem 4rem;
+    background: #1b2d20;
+}
+
+.marketing-shell .hero-slideshow {
+    overflow: hidden;
+}
+
+.marketing-shell .hero-slide {
+    position: absolute;
+    inset: -2%;
+    opacity: 0;
+    transform: none;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: saturate(1.04) contrast(1.02);
+    transition:
+        opacity 1.8s ease-in-out,
+        filter 1.8s ease-in-out;
+    will-change: opacity, filter;
+}
+
+.marketing-shell .hero-slide.is-active {
+    opacity: 1;
+    filter: saturate(1.1) contrast(1.04);
+}
+
+.marketing-shell .hero-shade {
+    background:
+        linear-gradient(135deg, rgba(17, 31, 20, 0.34), rgba(17, 31, 20, 0.58)),
+        linear-gradient(180deg, rgba(19, 35, 24, 0.22), rgba(19, 35, 24, 0.72));
+}
+
+.marketing-shell .hero-overlay {
+    background:
+        radial-gradient(circle at top, rgba(217, 164, 65, 0.18), transparent 24%),
+        linear-gradient(180deg, rgba(19, 35, 24, 0.42), rgba(19, 35, 24, 0.72));
+}
+
+.marketing-shell .hero-text {
+    width: min(960px, 100%);
+    padding: 2.4rem;
+}
+
+.marketing-shell .hero h2 {
+    margin: 1rem auto 1.2rem;
+    max-width: 820px;
+    font-size: clamp(2.8rem, 7vw, 5.4rem);
+    color: #fff9ef;
+}
+
+.marketing-shell .hero p {
+    max-width: 720px;
+    margin: 0 auto 2rem;
+    font-size: clamp(1rem, 2.2vw, 1.3rem);
+    color: rgba(255, 249, 239, 0.88);
+}
+
+.marketing-shell .hero-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.2rem;
+}
+
+.marketing-shell .cta-button {
+    border: 0;
+    border-radius: 999px;
+    padding: 0.95rem 1.6rem;
+    font-size: 1rem;
+    font-weight: 800;
+    color: #132318;
+    background: linear-gradient(135deg, #f0c76a, #db9d31);
+    box-shadow: 0 18px 32px rgba(12, 18, 13, 0.18);
+}
+
+.marketing-shell .cta-button:hover {
+    box-shadow: 0 22px 36px rgba(12, 18, 13, 0.22);
+    filter: saturate(1.05);
+}
+
+.marketing-shell .secondary-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3.25rem;
+    padding: 0.9rem 1.35rem;
+    border: 1px solid rgba(255, 249, 239, 0.22);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff9ef;
+    font-weight: 700;
+    backdrop-filter: blur(16px);
+}
+
+.marketing-shell .secondary-cta:hover {
+    background: rgba(255, 255, 255, 0.14);
+}
+
+.marketing-shell .hero-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+.marketing-shell .hero-metric {
+    padding: 1.15rem 1rem;
+    border: 1px solid rgba(255, 249, 239, 0.14);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px);
+}
+
+.marketing-shell .hero-metric strong {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1.5rem;
+    color: #fff7e8;
+}
+
+.marketing-shell .hero-metric span {
+    color: rgba(255, 249, 239, 0.8);
+    font-size: 0.95rem;
+}
+
+.marketing-shell .about,
+.marketing-shell .benefits,
+.marketing-shell .testimonials,
+.marketing-shell .cta,
+.marketing-shell .features {
+    padding: 5.5rem 0;
+}
+
+.marketing-shell .about {
+    background: rgba(255, 251, 243, 0.72);
+    box-shadow: none;
+}
+
+.marketing-shell .about h2,
+.marketing-shell .benefits h2,
+.marketing-shell .testimonials h2,
+.marketing-shell .cta h2 {
+    margin-bottom: 1.15rem;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    text-align: center;
+    color: var(--grain-ink);
+}
+
+.marketing-shell .about h2::after,
+.marketing-shell .benefits h2::after,
+.marketing-shell .testimonials h2::after {
+    background: linear-gradient(90deg, var(--grain-gold), var(--grain-field));
+}
+
+.marketing-shell .about p,
+.marketing-shell .cta p,
+.marketing-shell .section-intro p {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 1.08rem;
+}
+
+.marketing-shell .features .container {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.marketing-shell .feature {
+    position: relative;
+    overflow: hidden;
+    padding: 2rem;
+    margin: 0;
+    border: 1px solid var(--grain-line);
+    border-radius: 28px;
+    background: rgba(255, 252, 246, 0.92);
+    box-shadow: var(--grain-shadow);
+}
+
+.marketing-shell .feature::before {
+    content: "";
+    position: absolute;
+    inset: auto -10% 0 auto;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(217, 164, 65, 0.16), transparent 68%);
+}
+
+.marketing-shell .feature:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 46px rgba(27, 42, 31, 0.16);
+}
+
+.marketing-shell .feature h3 {
+    font-size: 1.55rem;
+    color: var(--grain-deep);
+}
+
+.marketing-shell .feature p {
+    margin-bottom: 1.4rem;
+}
+
+.marketing-shell .benefits {
+    background: linear-gradient(180deg, rgba(110, 139, 61, 0.08), rgba(255, 255, 255, 0));
+}
+
+.marketing-shell .benefits ul {
+    display: grid;
+    gap: 1rem;
+    max-width: 860px;
+    margin: 2rem auto 0;
+}
+
+.marketing-shell .benefits ul li {
+    align-items: flex-start;
+    gap: 0.8rem;
+    padding: 1rem 1.1rem;
+    border: 1px solid var(--grain-line);
+    border-radius: 16px;
+    background: rgba(255, 253, 248, 0.9);
+}
+
+.marketing-shell .benefits ul li::before {
+    content: "✓";
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.8rem;
+    height: 1.8rem;
+    margin-top: 0.1rem;
+    border-radius: 999px;
+    background: rgba(110, 139, 61, 0.15);
+    color: var(--grain-deep);
+    font-weight: 800;
+}
+
+.marketing-shell .testimonials {
+    background: rgba(255, 251, 243, 0.7);
+    box-shadow: none;
+}
+
+.marketing-shell .testimonial {
+    max-width: 760px;
+    margin: 1.4rem auto 0;
+    padding: 1.6rem 1.4rem;
+    border-left: 4px solid var(--grain-gold);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.84);
+    box-shadow: 0 18px 36px rgba(27, 42, 31, 0.08);
+}
+
+.marketing-shell .testimonial p:last-child {
+    margin-bottom: 0;
+    font-weight: 800;
+    color: var(--grain-deep);
+}
+
+.marketing-shell .cta {
+    background:
+        radial-gradient(circle at top, rgba(217, 164, 65, 0.22), transparent 24%),
+        linear-gradient(180deg, #244129 0%, #1c2f1f 100%);
+}
+
+.marketing-shell .cta h2,
+.marketing-shell .cta p {
+    color: #fff7e8;
+}
+
+@media (min-width: 900px) {
+    .marketing-shell .features .container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: start;
+    }
+
+    .marketing-shell .features .section-intro {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 768px) {
+    .marketing-shell .hero {
+        min-height: auto;
+        padding-top: 7.5rem;
+    }
+
+    .marketing-shell .hero-text {
+        padding: 1.6rem 0.4rem;
+    }
+
+    .marketing-shell .hero-metrics {
+        grid-template-columns: 1fr;
+    }
+}

@@ -18,7 +18,7 @@
     <div class="base_nav">
         <nav class="navbar navbar-expand-lg fixed-top navbar-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="{{ url_for('home') }}">
+                <a class="navbar-brand" href="{{ url_for('main.home') }}">
                     <img src="https://i.postimg.cc/1zZg1sp0/cosem-logo-removebg-preview.png" alt="" width="90" height="75" class="d-inline-block align-text-top logo">
                     COSEM
                 </a>
@@ -28,7 +28,7 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbarScroll">
                     <ul class="navbar-nav my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                         <li class="nav-item">
-                            <a class="nav-link active" href="{{ url_for('about') }}">About</a>
+                            <a class="nav-link active" href="{{ url_for('main.about') }}">About</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle no-arrow" href="#" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
@@ -37,28 +37,28 @@
                                 </button>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <li><a class="dropdown-item" href="{{ url_for('public_dashboard') }}">Public Dashboard</a></li>
-                                <li><a class="dropdown-item" href="{{ url_for('login') }}">Private Dashboard</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('dashboard.public_dashboard') }}">Public Dashboard</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('auth.login') }}">Private Dashboard</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
+                            <a class="nav-link" href="{{ url_for('main.contact') }}">Contact</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="{{ url_for('gallery') }}">Gallery</a>
+                            <a class="nav-link active" href="{{ url_for('main.gallery') }}">Gallery</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="{{ url_for('Cereals_Catalog') }}">Cereals Catalog</a>
+                            <a class="nav-link active" href="{{ url_for('main.cereals_catalog') }}">Cereals Catalog</a>
                         </li>
                     </ul>
                 </div>
                 <div class="d-flex">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ url_for('register') }}"><strong>Sign Up</strong></a>
+                                <a class="nav-link" href="{{ url_for('auth.register') }}"><strong>Sign Up</strong></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ url_for('login') }}"><strong>Login</strong></a>
+                                <a class="nav-link" href="{{ url_for('auth.login') }}"><strong>Login</strong></a>
                             </li>
                         </ul>
                         <div class="nav-wrapper">
@@ -67,7 +67,7 @@
                                 <li><b>English</b> <i class="fa fa-angle-down" aria-hidden="true"></i>
                                     <div class="triangle"></div>
                                     <ul>
-                                    <li><a href="{{ url_for('gallery_fr') }}"><i class="sl-flag flag-de"></i> <span class="active">French</span></a></li>
+                                    <li><a href="{{ url_for('main.gallery_fr') }}"><i class="sl-flag flag-de"></i> <span class="active">French</span></a></li>
                                     <li><a href="#"><i class="sl-flag flag-usa" href="#"></i> <span>English</span></a></li>
                                     </ul>
                                 </li>

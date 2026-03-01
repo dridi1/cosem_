@@ -2,6 +2,11 @@
 *.log
 *.pyc
 __pycache__
+.idea/
+.pytest_cache/
+api/cosem.db
+node_modules/
+npm-debug.log*
 
 # Environments 
 .env 
