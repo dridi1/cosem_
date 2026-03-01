@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,142 +8,54 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/nav.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/footer.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/carousel.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/section.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/home.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/about.css') }}">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    {% include "_tailwind_head.html" %}
+    {% block extra_head %}{% endblock %}
 </head>
-<body>
-<!-- Navbar -->
-<div class="base_nav">
-    <nav class="navbar navbar-expand-lg fixed-top navbar-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="{{ url_for('home') }}">
-                <img src="https://i.postimg.cc/1zZg1sp0/cosem-logo-removebg-preview.png" alt="" width="90" height="75" class="d-inline-block align-text-top logo">
-                COSEM
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarScroll">
-                <ul class="navbar-nav my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="{{ url_for('about') }}">About</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle no-arrow" href="#" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                            <button class="services-button">
-                                Services
-                            </button>
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <li><a class="dropdown-item" href="{{ url_for('public_dashboard') }}">Public Dashboard</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('login') }}">Private Dashboard</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="{{ url_for('gallery') }}">Gallery</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="{{ url_for('Cereals_Catalog') }}">Cereals Catalog</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="d-flex">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('register') }}"><strong>Sign Up</strong></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('login') }}"><strong>Login</strong></a>
-                        </li>
-                    </ul>
-                    <div class="nav-wrapper">
-                        <div class="sl-nav">
-                            <ul>
-                            <li><b>English</b> <i class="fa fa-angle-down" aria-hidden="true"></i>
-                                <div class="triangle"></div>
-                                <ul>
-                                <li><a href="{{ url_for('home_fr') }}"><i class="sl-flag flag-de"></i> <span class="active">French</span></a></li>
-                                <li><a href="#"><i class="sl-flag flag-usa" href="#"></i> <span>English</span></a></li>
-                                </ul>
-                            </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-        </div>
-    </nav>
-</div>
+<body class="marketing-shell bg-grain-paper text-grain-ink antialiased">
+    {% set home_endpoint = 'main.home' %}
+    {% set about_endpoint = 'main.about' %}
+    {% set contact_endpoint = 'main.contact' %}
+    {% set gallery_endpoint = 'main.gallery' %}
+    {% set catalog_endpoint = 'main.cereals_catalog' %}
+    {% set public_dashboard_endpoint = 'dashboard.public_dashboard' %}
+    {% set private_dashboard_endpoint = 'auth.login' %}
+    {% set register_endpoint = 'auth.register' %}
+    {% set login_endpoint = 'auth.login' %}
+    {% set about_label = 'About' %}
+    {% set services_label = 'Services' %}
+    {% set public_dashboard_label = 'Public Dashboard' %}
+    {% set private_dashboard_label = 'Private Dashboard' %}
+    {% set contact_label = 'Contact' %}
+    {% set gallery_label = 'Gallery' %}
+    {% set catalog_label = 'Cereals Catalog' %}
+    {% set register_label = 'Sign Up' %}
+    {% set login_label = 'Login' %}
+    {% set current_language_label = 'English' %}
+    {% set secondary_language_endpoint = 'main.home_fr' %}
+    {% set secondary_language_label = 'French' %}
+    {% set primary_language_endpoint = none %}
+    {% set primary_language_label = 'English' %}
+    {% include "_marketing_nav.html" %}
 
     {% block content %}{% endblock %}
 
-    <!-- Footer -->
-
-    <footer class="footer p-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3">
-                    <h2>COSEM</h2>
-                </div>
-                <div class="col-md-3">
-                    <h5>About Us</h5>
-                    <p>
-                        The COSEM is dedicated to supporting farmers with 
-                        the latest information, tools, and resources.
-                         Our mission is to empower farmers to achieve greater productivity 
-                         and sustainability.
-                    </p>
-                </div>
-                <div class="col-md-3">
-                    <h5>Contact Us</h5>
-                    <ul class="list-unstyled">
-                        <li>E-mail: cosem@planet.tn</li>
-                        <li>Phone: 71 607 117</li>
-                        <li>Fax: 71 606 917</li>
-                        <a href="https://maps.app.goo.gl/B7EewytZyFX2fZBc7">
-                            <li>Address: Siège Social: 46, Rue des Travailleurs - 2010 Manouba, Tunisie</li>
-                        </a>
-                        <a href="https://cosem.vercel.app"><li>cosem.vercel.app</li></a>
-                    </ul>
-                </div>
-                <div class="col-md-3">
-                    <h5>
-                    Follow Us :
-                    <ul class="list-inline footer-links">
-                        <li class="list-inline-item">
-                            <a href="https://www.facebook.com/semencescosemtunisie">
-                                <i class="fab fa-facebook"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    </h5>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-md-6">
-                    <p>© 2024 COSEM. All rights reserved.</p>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-12 text-end">
-                    <p style="color: #303030 !important;"><small>This website is developed by Slim Dridi & Nada Naffeti under The ESSAIs' supervisor Ines Abdeljaoued-Tej.</small></p>
-                </div>
-            </div>
-        </div>
-    </footer>
+    {% set footer_about_title = 'About Us' %}
+    {% set footer_about_text = 'The COSEM is dedicated to supporting farmers with the latest information, tools, and resources. Our mission is to empower farmers to achieve greater productivity and sustainability.' %}
+    {% set footer_contact_title = 'Contact Us' %}
+    {% set footer_phone_label = 'Phone' %}
+    {% set footer_address_label = 'Address' %}
+    {% set footer_website_label = 'cosem.vercel.app' %}
+    {% set footer_follow_label = 'Follow Us :' %}
+    {% set footer_copyright = '© 2026 COSEM. All rights reserved.' %}
+    {% set footer_credit = 'This website is developed by Slim Dridi & Nada Naffeti under the ESSAI supervisor Ines Abdeljaoued-Tej.' %}
+    {% include "_marketing_footer.html" %}
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -151,5 +63,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    {% block extra_scripts %}{% endblock %}
 </body>
 </html>

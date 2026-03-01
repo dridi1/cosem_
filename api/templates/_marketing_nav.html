@@ -1,0 +1,59 @@
+﻿<!-- Navbar -->
+{% set alternate_language_endpoint = secondary_language_endpoint if secondary_language_endpoint else primary_language_endpoint %}
+{% set alternate_language_label = secondary_language_label if secondary_language_endpoint else primary_language_label %}
+<div class="relative z-20">
+    <nav id="marketing-navbar" class="fixed top-0 z-50 w-full bg-grain-soft/80 px-3 py-1.5 font-sans shadow-card backdrop-blur transition-all duration-300 sm:px-5" style="font-family: 'Manrope', sans-serif;">
+        <div class="mx-auto flex w-full max-w-[1400px] items-center justify-between gap-4 lg:min-h-[3.5rem]">
+            <a class="flex items-center self-center gap-3 font-sans text-xl font-bold leading-none tracking-tight text-grain-deep no-underline" href="{{ url_for(home_endpoint) }}" style="font-family: 'Manrope', sans-serif;">
+                <img src="https://i.postimg.cc/1zZg1sp0/cosem-logo-removebg-preview.png" alt="" width="90" height="75" class="h-10 w-auto drop-shadow-md sm:h-12">
+                COSEM
+            </a>
+
+            <button id="marketing-nav-toggle" class="inline-flex items-center justify-center rounded-full border border-grain-line/60 bg-white/80 px-2.5 py-1 shadow-sm lg:hidden" type="button" aria-controls="marketing-nav-menu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="flex flex-col gap-1.5">
+                    <span class="block h-0.5 w-5 rounded-full bg-grain-deep"></span>
+                    <span class="block h-0.5 w-5 rounded-full bg-grain-deep"></span>
+                    <span class="block h-0.5 w-5 rounded-full bg-grain-deep"></span>
+                </span>
+            </button>
+
+            <div id="marketing-nav-menu" class="absolute left-3 right-3 top-full mt-2 hidden rounded-[24px] bg-grain-soft/95 p-4 shadow-card lg:static lg:mt-0 lg:flex lg:w-auto lg:flex-1 lg:items-center lg:self-center lg:justify-end lg:bg-transparent lg:p-0 lg:shadow-none">
+                <div class="flex w-full flex-col gap-3 lg:flex-row lg:items-center lg:justify-between lg:gap-6">
+                    <ul class="m-0 flex list-none flex-col items-start gap-1 p-0 lg:flex-row lg:items-center lg:self-center">
+                        <li>
+                            <a class="inline-flex items-center rounded-full px-4 py-1 font-sans text-sm font-semibold leading-none text-grain-muted no-underline transition hover:bg-grain-deep/5 hover:text-grain-deep" href="{{ url_for(about_endpoint) }}" style="font-family: 'Manrope', sans-serif;">{{ about_label }}</a>
+                        </li>
+                        <li>
+                            <a class="inline-flex items-center rounded-full px-4 py-1 font-sans text-sm font-semibold leading-none text-grain-muted no-underline transition hover:bg-grain-deep/5 hover:text-grain-deep" href="{{ url_for(public_dashboard_endpoint) }}" style="font-family: 'Manrope', sans-serif;">{{ public_dashboard_label }}</a>
+                        </li>
+                        <li>
+                            <a class="inline-flex items-center rounded-full px-4 py-1 font-sans text-sm font-semibold leading-none text-grain-muted no-underline transition hover:bg-grain-deep/5 hover:text-grain-deep" href="{{ url_for(contact_endpoint) }}" style="font-family: 'Manrope', sans-serif;">{{ contact_label }}</a>
+                        </li>
+                        <li>
+                            <a class="inline-flex items-center rounded-full px-4 py-1 font-sans text-sm font-semibold leading-none text-grain-muted no-underline transition hover:bg-grain-deep/5 hover:text-grain-deep" href="{{ url_for(gallery_endpoint) }}" style="font-family: 'Manrope', sans-serif;">{{ gallery_label }}</a>
+                        </li>
+                        <li>
+                            <a class="inline-flex items-center rounded-full px-4 py-1 font-sans text-sm font-semibold leading-none text-grain-muted no-underline transition hover:bg-grain-deep/5 hover:text-grain-deep" href="{{ url_for(catalog_endpoint) }}" style="font-family: 'Manrope', sans-serif;">{{ catalog_label }}</a>
+                        </li>
+                    </ul>
+
+                    <div class="flex flex-col items-start gap-3 lg:flex-row lg:items-center lg:self-center lg:gap-4">
+                        <div class="flex flex-col gap-2 lg:flex-row lg:items-center">
+                            <a class="inline-flex items-center rounded-full px-4 py-1 font-sans text-sm font-bold leading-none text-grain-deep no-underline transition hover:bg-grain-deep hover:text-white" href="{{ url_for(register_endpoint) }}" style="font-family: 'Manrope', sans-serif;"><strong>{{ register_label }}</strong></a>
+                            <a class="inline-flex items-center rounded-full border border-grain-line/60 bg-white/80 px-4 py-1 font-sans text-sm font-bold leading-none text-grain-deep no-underline shadow-sm transition hover:bg-grain-deep hover:text-white" href="{{ url_for(login_endpoint) }}" style="font-family: 'Manrope', sans-serif;"><strong>{{ login_label }}</strong></a>
+                        </div>
+
+                        <div class="inline-flex items-center self-center gap-1 rounded-full bg-white/80 p-1 shadow-sm" aria-label="Language switcher">
+                            <span class="inline-flex min-w-[5rem] items-center justify-center rounded-full bg-grain-deep/10 px-3 py-1 font-sans text-sm font-bold leading-none text-grain-deep" aria-current="true" style="font-family: 'Manrope', sans-serif;">{{ current_language_label }}</span>
+                            {% if alternate_language_endpoint %}
+                            <a class="inline-flex min-w-[5rem] items-center justify-center rounded-full px-3 py-1 font-sans text-sm font-bold leading-none text-grain-muted no-underline transition hover:bg-grain-deep/5 hover:text-grain-deep" href="{{ url_for(alternate_language_endpoint) }}" style="font-family: 'Manrope', sans-serif;">{{ alternate_language_label }}</a>
+                            {% else %}
+                            <span class="inline-flex min-w-[5rem] items-center justify-center rounded-full px-3 py-1 font-sans text-sm font-bold leading-none text-grain-muted" style="font-family: 'Manrope', sans-serif;">{{ alternate_language_label }}</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>

@@ -1,100 +1,90 @@
-<!DOCTYPE html>
-<html lang="en">
+﻿{% extends "base_fr.html" %}
+{% block content %}
+<main class="tw-page-shell pt-24 pb-12 sm:pt-28">
+    <section class="tw-page-container">
+        <div class="mx-auto max-w-2xl overflow-hidden rounded-[2rem] border border-grain-line/70 bg-white shadow-grain">
+            <div class="bg-grain-soft px-6 py-8 sm:px-8 sm:py-10 lg:px-10">
+                <div class="mx-auto max-w-xl">
+                    <div class="mb-8 flex items-start justify-between gap-4">
+                        <div>
+                            <p class="text-sm font-semibold uppercase tracking-[0.26em] text-grain-field">Inscription</p>
+                            <h1 class="mt-2 font-display text-3xl font-semibold text-grain-ink">Creer votre compte</h1>
+                            <p class="mt-3 max-w-md text-sm leading-7 text-grain-muted">
+                                Inscrivez-vous pour enregistrer vos donnees terrain, comparer les groupes cerealiers et acceder aux outils d'analyse privee.
+                            </p>
+                        </div>
+                        <a href="{{ url_for('main.home_fr') }}" class="inline-flex items-center rounded-full border border-grain-line bg-white px-4 py-2 text-sm font-semibold text-grain-ink transition hover:border-grain-field hover:text-grain-field">
+                            Accueil
+                        </a>
+                    </div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" type='text/css' href="{{ url_for('static', filename='css/login.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/nav.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/material-design-iconic-font.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/button.css') }}">
-</head>
-
-<body>
-    <section class="sign-up">
-        <div class="container">
-            <div class="signup-content">
-                <div class="signup-form">
-                    <h2 class="form-title">S'inscrire</h2>
-                    <form method="POST" class="register-form" id="register-form">
+                    <form method="POST" class="space-y-5">
                         {{ form.hidden_tag() }}
-                        <div class="form-group">
-                            <div class="input-container">
-                                <label for="username" class="input-icon"><i class="fa-solid fa-user"></i></label>
-                                {{ form.username(class="form-control") }}
-                            </div>
+
+                        <div>
+                            <label class="mb-2 block text-sm font-semibold text-grain-ink" for="{{ form.username.id }}">Nom d'utilisateur</label>
+                            {{ form.username(class="block w-full rounded-2xl border border-grain-line bg-white px-4 py-3 text-sm text-grain-ink placeholder:text-grain-muted/70 focus:border-grain-field focus:ring-grain-field") }}
                             {% if form.username.errors %}
-                                {% for error in form.username.errors %}
-                                    <div class="error-message">
-                                        <i class="fa-solid fa-triangle-exclamation"></i> {{ error }}
-                                    </div>
-                                {% endfor %}
-                            {% endif %}    
-                        </div>
-                        <div class="form-group">
-                            <div class="input-container">
-                                <label for="email"><i class="fa-solid fa-envelope"></i></label>
-                                {{ form.email(class="form-control") }}
-                            </div>
-                            {% if form.email.errors %}
-                                    {% for error in form.email.errors %}
-                                        <div class="error-message">
-                                            <i class="fa-solid fa-triangle-exclamation"></i> {{ error }}
-                                        </div>
-                                    {% endfor %}
-                            {% endif %}
-                        </div>
-                        <div class="form-group">
-                            <div class="input-container">
-                                <label for="password" class="input-icon"><i class="zmdi zmdi-lock"></i></label>
-                                {{ form.password(class="form-control") }}
-                            </div>
-                            {% if form.password.errors %}
-                                {% for error in form.password.errors %}
-                                    <div class="error-message">
-                                        <i class="fa-solid fa-triangle-exclamation"></i> {{ error }}
-                                    </div>
-                                {% endfor %}
-                            {% endif %}
-                        </div>
-                        <div class="form-group">
-                            <div class="input-container">
-                                <label for="confirm_password" class="input-icon"><i class="zmdi zmdi-lock-outline"></i></label>
-                                {{ form.confirm_password(class="form-control") }}
-                            </div>
-                            {% if form.confirm_password.errors %}
-                                <div class="error-messages">
-                                    {% for error in form.confirm_password.errors %}
-                                        <div class="error-message">
-                                            <i class="fa-solid fa-triangle-exclamation"></i> {{ error }}
-                                        </div>
+                                <div class="mt-2 space-y-1">
+                                    {% for error in form.username.errors %}
+                                        <p class="text-sm text-rose-700">{{ error }}</p>
                                     {% endfor %}
                                 </div>
                             {% endif %}
                         </div>
-                        <div class="form-group">
-                            <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
-                            <label for="agree-term" class="label-agree-term"><span><span></span></span>J'accepte toutes les déclarations dans <a href="#" class="term-service">les Conditions d'utilisation.</a></label>
+
+                        <div>
+                            <label class="mb-2 block text-sm font-semibold text-grain-ink" for="{{ form.email.id }}">Email</label>
+                            {{ form.email(class="block w-full rounded-2xl border border-grain-line bg-white px-4 py-3 text-sm text-grain-ink placeholder:text-grain-muted/70 focus:border-grain-field focus:ring-grain-field") }}
+                            {% if form.email.errors %}
+                                <div class="mt-2 space-y-1">
+                                    {% for error in form.email.errors %}
+                                        <p class="text-sm text-rose-700">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
                         </div>
-                        <div class="form-group form-button">
-                            {{ form.submit(class="form-submit") }}
-                            <a href="{{ url_for('home_fr') }}">
-                                <button type="button" class="button-36 register">Accueil</button>
+
+                        <div class="grid gap-5 sm:grid-cols-2">
+                            <div>
+                                <label class="mb-2 block text-sm font-semibold text-grain-ink" for="{{ form.password.id }}">Mot de passe</label>
+                                {{ form.password(class="block w-full rounded-2xl border border-grain-line bg-white px-4 py-3 text-sm text-grain-ink placeholder:text-grain-muted/70 focus:border-grain-field focus:ring-grain-field") }}
+                                {% if form.password.errors %}
+                                    <div class="mt-2 space-y-1">
+                                        {% for error in form.password.errors %}
+                                            <p class="text-sm text-rose-700">{{ error }}</p>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <div>
+                                <label class="mb-2 block text-sm font-semibold text-grain-ink" for="{{ form.confirm_password.id }}">Confirmer le mot de passe</label>
+                                {{ form.confirm_password(class="block w-full rounded-2xl border border-grain-line bg-white px-4 py-3 text-sm text-grain-ink placeholder:text-grain-muted/70 focus:border-grain-field focus:ring-grain-field") }}
+                                {% if form.confirm_password.errors %}
+                                    <div class="mt-2 space-y-1">
+                                        {% for error in form.confirm_password.errors %}
+                                            <p class="text-sm text-rose-700">{{ error }}</p>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        <label for="agree-term" class="flex items-start gap-3 rounded-2xl border border-grain-line/80 bg-white px-4 py-3 text-sm leading-6 text-grain-muted">
+                            <input type="checkbox" name="agree-term" id="agree-term" class="mt-1 h-4 w-4 rounded border-grain-line text-grain-field focus:ring-grain-field">
+                            <span>J'accepte les conditions du service et je comprends que ce compte donne acces aux fonctions d'analyse privee.</span>
+                        </label>
+
+                        <div class="flex flex-col gap-3 pt-2 sm:flex-row">
+                            {{ form.submit(class="w-full rounded-full border border-black bg-black px-5 py-3 text-sm font-semibold text-white shadow-none transition hover:bg-white hover:text-black focus:bg-white focus:text-black focus:ring-2 focus:ring-black sm:w-auto", value="Creer un compte") }}
+                            <a href="{{ url_for('auth.login_fr') }}" class="inline-flex w-full items-center justify-center rounded-full border border-grain-line bg-white px-5 py-3 text-sm font-semibold text-grain-ink transition hover:border-grain-field hover:text-grain-field sm:w-auto">
+                                J'ai deja un compte
                             </a>
                         </div>
                     </form>
                 </div>
-                <div class="signup-image">
-                    <figure><img src="https://i.postimg.cc/QxS7z4Zy/wheatt.jpg" alt="sing up image"></figure>
-                    <a href="{{ url_for('login_fr') }}" class="signup-image-link">Je suis déjà membre./a>
-                </div>
             </div>
         </div>
     </section>
-
-</body>
-
-</html>
+</main>
+{% endblock %}

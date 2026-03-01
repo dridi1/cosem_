@@ -1,0 +1,42 @@
+﻿<!-- Footer -->
+<footer class="footer bg-[radial-gradient(circle_at_top_right,rgba(217,164,65,0.18),transparent_24%),linear-gradient(180deg,#244129_0%,#1a2f1f_100%)] py-16 font-sans text-grain-soft">
+    <div class="tw-page-container">
+        <div class="grid gap-10 md:grid-cols-2 xl:grid-cols-4">
+            <div>
+                <h2 class="font-display text-3xl font-bold tracking-tight text-white">COSEM</h2>
+            </div>
+            <div>
+                <h5 class="font-display text-sm font-bold uppercase tracking-[0.24em] text-grain-gold">{{ footer_about_title }}</h5>
+                <p class="mt-4 text-sm leading-7 text-grain-soft/80">{{ footer_about_text }}</p>
+            </div>
+            <div>
+                <h5 class="font-display text-sm font-bold uppercase tracking-[0.24em] text-grain-gold">{{ footer_contact_title }}</h5>
+                <ul class="mt-4 space-y-3 text-sm text-grain-soft/80">
+                    <li>E-mail: cosem@planet.tn</li>
+                    <li>{{ footer_phone_label }}: 71 607 117</li>
+                    <li>Fax: 71 606 917</li>
+                    <li>
+                        <a class="text-grain-soft/80 no-underline transition hover:text-white" href="https://maps.app.goo.gl/B7EewytZyFX2fZBc7">{{ footer_address_label }}: Siege Social: 46, Rue des Travailleurs - 2010 Manouba, Tunisie</a>
+                    </li>
+                    {% if footer_website_label %}
+                    <li>
+                        <a class="text-grain-soft/80 no-underline transition hover:text-white" href="https://cosem.vercel.app">{{ footer_website_label }}</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+            <div>
+                <h5 class="font-display text-sm font-bold uppercase tracking-[0.24em] text-grain-gold">{{ footer_follow_label }}</h5>
+                <div class="mt-4 flex items-center gap-3">
+                    <a class="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-xl text-white transition hover:bg-grain-gold hover:text-grain-deep" href="https://www.facebook.com/semencescosemtunisie" aria-label="Facebook">
+                        <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <hr class="my-8 border-white/10">
+        <p class="text-sm text-grain-soft/80">{{ footer_copyright }}</p>
+        <hr class="my-8 border-white/10">
+        <p class="text-sm text-grain-soft/60 md:text-right"><small>{{ footer_credit }}</small></p>
+    </div>
+</footer>

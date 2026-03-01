@@ -1,79 +1,182 @@
-{% extends "base_fr.html" %}
+﻿{% extends "base_fr.html" %}
 
 {% block title %}Page d'Accueil{% endblock %}
 
 {% block content %}
-
-    <main class="main-content" id="home">
-        <section class="hero">
-            <div class="hero-overlay">
-                <div class="hero-text">
-                    <h2>Explorez les Statistiques du Blé en Tunisie</h2>
-                    <p>Accédez aux infographies publiques et générez des analyses de données personnalisées sur le blé en Tunisie.</p>
-                    <a href="#about"><button class="cta-button">Commencer</button></a>
+    <main class="tw-page-shell overflow-hidden pt-[3.25rem] sm:pt-[3.75rem]" id="home">
+        <section class="hero relative isolate min-h-[calc(100vh-3.25rem)] overflow-hidden bg-cover bg-center sm:min-h-[calc(100vh-3.75rem)]">
+            <div class="hero-slideshow absolute inset-0">
+                <div class="hero-slide is-active" style="background-image: url('https://i.postimg.cc/XJXGG887/crop-fuild.jpg');"></div>
+                <div class="hero-slide" style="background-image: url('https://i.postimg.cc/VNKDnmx9/crop-fuild2-1.jpg');"></div>
+                <div class="hero-slide" style="background-image: url('https://i.postimg.cc/PxcyVKrP/crop-fuild2-2.jpg');"></div>
+            </div>
+            <div class="hero-shade absolute inset-0"></div>
+            <div class="tw-page-container relative flex min-h-[calc(100vh-3.25rem)] items-center px-4 pb-16 pt-32 sm:min-h-[calc(100vh-3.75rem)] sm:px-6 lg:px-8 lg:pt-36">
+                <div class="w-full">
+                    <div class="mx-auto max-w-3xl text-center">
+                        <span class="inline-flex rounded-full border border-white/15 bg-white/10 px-4 py-2 font-display text-xs font-bold uppercase tracking-[0.28em] text-white/80 backdrop-blur">
+                            Intelligence agricole pour la Tunisie
+                        </span>
+                        <h1 class="mt-6 max-w-4xl font-display text-5xl font-bold tracking-[-0.05em] text-white sm:text-6xl lg:text-7xl">
+                            Explorez l'histoire du ble tunisien avec une lecture plus claire des donnees.
+                        </h1>
+                        <p class="mt-6 max-w-2xl text-lg leading-8 text-white/78 sm:text-xl">
+                            Consultez les infographies publiques, comparez les groupes cerealiers et passez dans un espace prive pour analyser votre propre terrain.
+                        </p>
+                        <div class="mt-8 flex flex-wrap justify-center gap-4">
+                            <a href="#about" class="tw-primary-btn">Commencer</a>
+                            <a href="{{ url_for('dashboard.public_dashboard_fr') }}" class="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-6 py-3 font-bold text-white backdrop-blur transition hover:bg-white/16">
+                                Voir le tableau public
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="about" id="about">
-            <div class="container">
-                <h2>À Propos de Notre Service</h2>
-                <p>Notre plateforme fournit des données complètes et des outils pour vous aider à analyser la production et les types de blé en Tunisie. Que vous soyez agriculteur, chercheur ou décideur politique, nos tableaux de bord offrent les informations dont vous avez besoin pour comprendre la dynamique de la production, de la consommation et de l'exportation du blé en Tunisie. Découvrez de nouvelles tendances et prenez des décisions basées sur les données en toute simplicité.</p>
-            </div>
-        </section>
-
-        <section class="features">
-            <div class="container">
-                <div class="feature" id="public-dashboard">
-                    <h3>Tableau de Bord Public</h3>
-                    <p>Consultez des infographies détaillées sur les différents types de blé cultivés en Tunisie, y compris les statistiques de production, les distributions régionales et les tendances historiques. Nos graphiques interactifs vous permettent d'approfondir les données, obtenant ainsi des informations précieuses sur la dynamique du marché et les tendances de croissance.</p>
-                    <a href="{{url_for('public_dashboard')}}">
-                      <button class="cta-button">Commencer</button>
-                    </a>
-                </div>
-                <div class="feature" id="private-dashboard">
-                    <h3>Tableau de Bord Privé</h3>
-                    <p>Saisissez vos propres données et générez des graphiques d'analyse personnalisés. Nos outils vous aident à suivre votre production de blé, à la comparer aux moyennes régionales et à optimiser vos stratégies agricoles. Que vous cherchiez à améliorer le rendement, à réduire les coûts ou à augmenter la durabilité, notre tableau de bord fournit les analyses dont vous avez besoin.</p>
-                    <a href="{{url_for('login')}}">
-                      <button class="cta-button">Commencer</button>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section class="benefits" id="benefits">
-            <div class="container">
-                <h2>Pourquoi Choisir Notre Tableau de Bord?</h2>
-                <ul style="max-width: 1500px; text-align: center;">
-                    <li><strong>Données en Temps Réel:</strong> Recevez les dernières mises à jour et informations grâce aux flux de données en temps réel.</li>
-                    <li><strong>Graphiques Personnalisables:</strong> Adaptez vos visualisations de données à vos besoins spécifiques.</li>
-                    <li><strong>Interface Conviviale:</strong> Profitez d'une expérience utilisateur fluide et intuitive.</li>
-                    <li><strong>Sécurité des Données:</strong> La confidentialité et la sécurité de vos données sont notre priorité absolue.</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="testimonials" id="testimonials">
-            <div class="container">
-                <h2>Ce que Disent Nos Utilisateurs</h2>
-                <div class="testimonial">
-                    <p>"Le Tableau de Bord Agricole a transformé la façon dont je gère ma ferme. Les informations et les données sont inestimables!"</p>
-                    <p>- Ahmed M., Agriculteur</p>
-                </div>
-                <div class="testimonial">
-                    <p>"Un outil fantastique pour quiconque dans le secteur agricole. Il est facile à utiliser et incroyablement informatif."</p>
-                    <p>- Fatima B., Chercheuse</p>
+        <section class="relative py-24" id="about">
+            <div class="absolute inset-x-0 top-0 h-40 bg-[radial-gradient(circle_at_top,rgba(213,166,62,0.15),transparent_60%)]"></div>
+            <div class="tw-page-container relative">
+                <div class="tw-shell-card p-8 sm:p-10 lg:p-14">
+                    <span class="tw-section-kicker">A propos</span>
+                    <div class="mt-6 grid gap-8 lg:grid-cols-[minmax(0,0.95fr)_minmax(280px,0.75fr)] lg:items-start">
+                        <div>
+                            <h2 class="tw-section-heading">Une plateforme pensee pour les decisions liees a la production cerealiere.</h2>
+                            <p class="tw-section-copy mt-6">
+                                Notre plateforme donne aux agriculteurs, chercheurs et decideurs un espace unique pour lire la production, la consommation et les flux autour du ble en Tunisie. L'objectif est de transformer des donnees dispersees en decisions exploitables.
+                            </p>
+                        </div>
+                        <div class="rounded-[24px] border border-grain-line/60 bg-grain-soft p-6">
+                            <p class="font-display text-sm font-bold uppercase tracking-[0.24em] text-grain-deep">Ce que vous obtenez</p>
+                            <ul class="mt-4 space-y-4 text-sm leading-7 text-grain-muted">
+                                <li>Des visualisations regionales sur la production et les rendements.</li>
+                                <li>Un espace prive pour vos propres donnees de terrain.</li>
+                                <li>Des tableaux plus clairs pour un usage regulier.</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="cta">
-            <div class="container">
-                <h2>Prêt à Commencer?</h2>
-                <p>Rejoignez notre communauté d'agriculteurs et d'experts agricoles. Accédez à des données détaillées, générez des analyses personnalisées et optimisez votre production de blé en toute simplicité. Cliquez sur le bouton ci-dessous pour vous inscrire et commencer à utiliser nos services dès aujourd'hui.</p>
-                <a href="{{url_for('login')}}">
-                  <button class="cta-button">Inscrivez-vous Maintenant</button>                
-                </a>
+        <section class="py-24">
+            <div class="tw-page-container">
+                <div class="mx-auto max-w-3xl text-center">
+                    <span class="tw-section-kicker">Tableaux de bord</span>
+                    <h2 class="tw-section-heading mt-6">Choisissez le parcours adapte a vos donnees.</h2>
+                    <p class="tw-section-copy mt-5">
+                        Commencez par une vue publique des indicateurs du ble en Tunisie, ou passez directement a l'espace prive pour etudier votre propre terrain et vos resultats.
+                    </p>
+                </div>
+                <div class="mt-12 grid gap-6 lg:grid-cols-2">
+                    <article class="tw-grid-card relative overflow-hidden">
+                        <div class="absolute right-0 top-0 h-40 w-40 rounded-full bg-grain-gold/10 blur-3xl"></div>
+                        <span class="tw-section-kicker">Public</span>
+                        <h3 class="mt-6 font-display text-3xl font-bold tracking-tight text-grain-ink">Tableau de bord public</h3>
+                        <p class="mt-5 text-base leading-8 text-grain-muted">
+                            Consultez des infographies detaillees sur les principaux groupes de ble cultives en Tunisie, avec des vues sur la production, la repartition regionale et les tendances.
+                        </p>
+                        <ul class="mt-6 space-y-3 text-sm leading-7 text-grain-muted">
+                            <li>Vues nationales sur la production cerealiere</li>
+                            <li>Comparaisons regionales et tendances longues</li>
+                            <li>Visualisations interactives pour une lecture rapide</li>
+                        </ul>
+                        <a href="{{ url_for('dashboard.public_dashboard_fr') }}" class="tw-primary-btn mt-8">Explorer les donnees publiques</a>
+                    </article>
+                    <article class="tw-grid-card relative overflow-hidden border-grain-deep/15 bg-[linear-gradient(180deg,rgba(255,250,240,0.96),rgba(243,239,228,0.9))]">
+                        <div class="absolute bottom-0 right-0 h-48 w-48 rounded-full bg-grain-field/10 blur-3xl"></div>
+                        <span class="tw-section-kicker">Prive</span>
+                        <h3 class="mt-6 font-display text-3xl font-bold tracking-tight text-grain-ink">Tableau de bord prive</h3>
+                        <p class="mt-5 text-base leading-8 text-grain-muted">
+                            Saisissez vos propres valeurs, dessinez votre terrain et generez des graphiques qui relient superficie semee, quantites collectees et rendement.
+                        </p>
+                        <ul class="mt-6 space-y-3 text-sm leading-7 text-grain-muted">
+                            <li>Saisie propre a votre exploitation</li>
+                            <li>Graphiques prives construits a partir de vos chiffres</li>
+                            <li>Une meilleure base pour les decisions operationnelles</li>
+                        </ul>
+                        <a href="{{ url_for('auth.login_fr') }}" class="tw-primary-btn mt-8">Ouvrir l'espace prive</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24">
+            <div class="tw-page-container">
+                <div class="rounded-[32px] bg-gradient-to-br from-grain-deep to-grain-field px-6 py-10 text-white shadow-grain sm:px-10 lg:px-14 lg:py-14">
+                    <div class="grid gap-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:items-start">
+                        <div>
+                            <span class="inline-flex rounded-full border border-white/35 bg-white/20 px-3 py-1 text-xs font-bold uppercase tracking-[0.24em] text-white">
+                                Avantages
+                            </span>
+                            <h2 class="mt-6 font-display text-4xl font-bold tracking-tight text-white sm:text-5xl">Pourquoi les equipes reviennent sur ce tableau de bord.</h2>
+                            <p class="mt-5 max-w-xl text-lg leading-8 text-white">
+                                L'objectif n'est pas seulement d'afficher des graphiques. Il s'agit de rendre les donnees agricoles plus lisibles, comparables et utiles dans le travail quotidien.
+                            </p>
+                        </div>
+                        <div class="grid gap-4 sm:grid-cols-2">
+                            <div class="rounded-[24px] border border-white/28 bg-white/20 p-5 backdrop-blur">
+                                <h3 class="font-display text-xl font-bold text-white">Vue en temps reel</h3>
+                                <p class="mt-3 text-sm leading-7 text-white">Obtenez une lecture plus rapide des evolutions de production.</p>
+                            </div>
+                            <div class="rounded-[24px] border border-white/28 bg-white/20 p-5 backdrop-blur">
+                                <h3 class="font-display text-xl font-bold text-white">Analyse souple</h3>
+                                <p class="mt-3 text-sm leading-7 text-white">Comparez superficie, quantites et rendement sans friction.</p>
+                            </div>
+                            <div class="rounded-[24px] border border-white/28 bg-white/20 p-5 backdrop-blur">
+                                <h3 class="font-display text-xl font-bold text-white">Navigation claire</h3>
+                                <p class="mt-3 text-sm leading-7 text-white">Passez du public au prive dans un parcours coherent.</p>
+                            </div>
+                            <div class="rounded-[24px] border border-white/28 bg-white/20 p-5 backdrop-blur">
+                                <h3 class="font-display text-xl font-bold text-white">Protection des donnees</h3>
+                                <p class="mt-3 text-sm leading-7 text-white">Gardez vos donnees privees tout en profitant des indicateurs publics.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24">
+            <div class="tw-page-container">
+                <div class="mx-auto max-w-3xl text-center">
+                    <span class="tw-section-kicker">Retours</span>
+                    <h2 class="tw-section-heading mt-6">Ce que disent les utilisateurs apres usage.</h2>
+                </div>
+                <div class="mt-12 grid gap-6 lg:grid-cols-2">
+                    <blockquote class="tw-grid-card">
+                        <p class="text-lg leading-8 text-grain-ink">
+                            "Le Tableau de Bord Agricole a transforme la facon dont je gere ma ferme. Les informations et les donnees sont inestimables."
+                        </p>
+                        <footer class="mt-6 font-bold text-grain-deep">Ahmed M., Agriculteur</footer>
+                    </blockquote>
+                    <blockquote class="tw-grid-card">
+                        <p class="text-lg leading-8 text-grain-ink">
+                            "Un outil fantastique pour quiconque dans le secteur agricole. Il est facile a utiliser et incroyablement informatif."
+                        </p>
+                        <footer class="mt-6 font-bold text-grain-deep">Fatima B., Chercheuse</footer>
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
+        <section class="pb-24">
+            <div class="tw-page-container">
+                <div class="rounded-[32px] border border-grain-line/60 bg-[linear-gradient(135deg,rgba(255,250,240,0.98),rgba(241,236,223,0.96))] px-6 py-10 shadow-card sm:px-10 lg:px-14 lg:py-14">
+                    <div class="grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
+                        <div class="max-w-3xl">
+                            <span class="tw-section-kicker">Commencer</span>
+                            <h2 class="tw-section-heading mt-6">Pret a passer de la vue d'ensemble a l'action ?</h2>
+                            <p class="tw-section-copy mt-5">
+                                Rejoignez la plateforme, accedez aux tableaux de bord, et commencez a travailler avec des donnees de production plus faciles a lire, comparer et exploiter.
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-4">
+                            <a href="{{ url_for('auth.login_fr') }}" class="tw-primary-btn">Inscrivez-vous maintenant</a>
+                            <a href="{{ url_for('dashboard.public_dashboard_fr') }}" class="tw-pill-link bg-white/70 px-6 py-3">Voir le tableau public</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>

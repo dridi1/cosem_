@@ -1,95 +1,139 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crop Production Dashboard</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/public_dashboard.css') }}">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.5/seedrandom.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
-</head>
-<body id="body-pd">
-    <div class="d-flex">
-    <header class="header" id="header">
-        <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
-    </header>
-        <div class="l-navbar" id="nav-bar">
-            <nav class="nav">
-                <div> <a href="{{ url_for('home') }}" class="nav_logo"> <i class='bx bx-layer nav_logo-icon'></i> <span class="nav_logo-name">COSEM</span> </a>
-                    <div class="nav_list"> <a href="#" class="nav_link active"> <i class='bx bx-grid-alt nav_icon'></i> <span class="nav_name">Dashboard</span> </a> </div>
-                </div> <a href="{{ url_for('home') }}" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Back Home</span> </a>
-            </nav>
-        </div>
-        <div class="container-fluid p-4" style="margin-left: 50px; margin-top: 50px;">
-            <header class="mb-4">
-                <div class="jumbotron text-white bg-gradient-primary p-4 rounded">
-                    <div class="container">
-                        <h1 class="display-4">Public Dashboard</h1>
-                        <p class="lead">Visualize and analyze crop production data effectively</p>
-                    </div>
-                </div>
-            </header>   
-            <div class="block">
-                <div class=" chart-container">
-                    <div class="histogram" id="histogramtn"></div>
-                </div>
-                <div class=" chart-container">
-                    <div class="maptn" id="maptn"></div>
-                </div>
-            </div>
-            <div class="block1">
-                <div class=" chart-container">
-                    <div class="barchart" id="barcharttn"></div>   
-                </div>
-            </div>
-            <div class="two">
-                <h1>2023 Data:</h1>
-            </div>
-            <div class="block2">
-                <div class="chart-container1">
-                    <div class="histogram-2023" id="histogram-2023"></div>
-                </div>
-                <div class="chart-container1">
-                    <div class="pie-2023" id="pie-2023"></div>                
-                </div>
-            </div>
-            <table id="myTable1" class="display">
-                <thead id="tableHeader1"></thead>
-                <tbody id="tableBody1"></tbody>
-            </table>
-            <div class="two">
-                <h1>Seed quality:</h1>
-            </div>
-            <div class="block2">
-                <div class="chart-container1">
-                    <div id="ble-dur-chart"></div>
-                </div>
-                <div class="chart-container1">
-                    <div id="ble-tendre-chart"></div>                
-                </div>
-                <div class="chart-container1">
-                    <div id="orge-triticale-chart"></div>                
-                </div>
-            </div>
-            <table id="myTable2" class="display">
-                <thead id="tableHeader2"></thead>
-                <tbody id="tableBody2"></tbody>
-            </table>
-        </div>
-    </div>
-    <script src="{{ url_for('static', filename='js/public_dashboard.js') }}"></script>
+﻿{% extends "dashboard_base.html" %}
+{% set page_lang = "en" %}
+{% set page_title = "Public Dashboard" %}
+{% set home_endpoint = "main.home" %}
+{% set dashboard_endpoint = "dashboard.public_dashboard" %}
+{% set analyze_endpoint = none %}
+{% set show_header = false %}
+{% set active_section = "dashboard" %}
+{% set dashboard_label = "Public Dashboard" %}
+{% set analyze_label = "" %}
+{% set logout_label = "" %}
+{% set bottom_endpoint = "main.home" %}
+{% set bottom_label = "Back Home" %}
+{% set bottom_icon = "bx-arrow-back" %}
+{% set page_heading = "Public Dashboard" %}
+{% set page_subheading = "Explore public production views, 2023 campaign indicators, and seed quality reference data." %}
 
-</body>
-</html>
+{% block dashboard_styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/private_dashboard.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/public_dashboard.css') }}">
+{% endblock %}
+
+{% block dashboard_content %}
+    <div class="dashboard-mobile-home">
+        <a href="{{ url_for('main.home') }}" class="dashboard-mobile-home__link">Back home</a>
+    </div>
+
+    <section class="dashboard-section">
+        <div class="dashboard-section-heading">
+            <div>
+                <p class="dashboard-section-kicker">Overview</p>
+                <h2>Production patterns</h2>
+            </div>
+            <p>Compare production by governorate, inspect the simulated production map, and review the stacked crop view.</p>
+        </div>
+        <div class="dashboard-grid dashboard-grid-two">
+            <article class="dashboard-card dashboard-card-tall">
+                <div class="dashboard-card-header">
+                    <h3>Production by governorate</h3>
+                </div>
+                <div class="dashboard-plot" id="histogramtn"></div>
+            </article>
+            <article class="dashboard-card dashboard-card-tall">
+                <div class="dashboard-card-header">
+                    <h3>Production map</h3>
+                </div>
+                <div class="dashboard-plot" id="maptn"></div>
+            </article>
+        </div>
+        <div class="dashboard-grid dashboard-grid-one">
+            <article class="dashboard-card">
+                <div class="dashboard-card-header">
+                    <h3>Production as proportion of area</h3>
+                </div>
+                <div class="dashboard-plot" id="barcharttn"></div>
+            </article>
+        </div>
+    </section>
+
+    <section class="dashboard-section">
+        <div class="dashboard-section-heading">
+            <div>
+                <p class="dashboard-section-kicker">Campaign 2023</p>
+                <h2>Certified area and collected quantities</h2>
+            </div>
+            <p>Read the control status of the 2023 campaign, then inspect the supporting reference table below.</p>
+        </div>
+        <div class="dashboard-grid dashboard-grid-two">
+            <article class="dashboard-card">
+                <div class="dashboard-card-header">
+                    <h3>Controlled, accepted, and rejected area</h3>
+                </div>
+                <div class="dashboard-plot" id="histogram-2023"></div>
+            </article>
+            <article class="dashboard-card">
+                <div class="dashboard-card-header">
+                    <h3>Collected quantities by cereal type</h3>
+                </div>
+                <div class="dashboard-plot" id="pie-2023"></div>
+            </article>
+        </div>
+        <article class="dashboard-table-card">
+            <div class="dashboard-card-header">
+                <h3>2023 campaign table</h3>
+            </div>
+            <div class="dashboard-table-wrap">
+                <table id="myTable1" class="display dashboard-table">
+                    <thead id="tableHeader1"></thead>
+                    <tbody id="tableBody1"></tbody>
+                </table>
+            </div>
+        </article>
+    </section>
+
+    <section class="dashboard-section">
+        <div class="dashboard-section-heading">
+            <div>
+                <p class="dashboard-section-kicker">Seed quality</p>
+                <h2>Certification and calibration breakdown</h2>
+            </div>
+            <p>Review certified, downgraded, and rejected quantities across the main cereal families handled by COSEM.</p>
+        </div>
+        <div class="dashboard-grid dashboard-grid-three">
+            <article class="dashboard-card">
+                <div class="dashboard-card-header">
+                    <h3>Durum wheat</h3>
+                </div>
+                <div class="dashboard-plot" id="ble-dur-chart"></div>
+            </article>
+            <article class="dashboard-card">
+                <div class="dashboard-card-header">
+                    <h3>Soft wheat</h3>
+                </div>
+                <div class="dashboard-plot" id="ble-tendre-chart"></div>
+            </article>
+            <article class="dashboard-card">
+                <div class="dashboard-card-header">
+                    <h3>Barley and triticale</h3>
+                </div>
+                <div class="dashboard-plot" id="orge-triticale-chart"></div>
+            </article>
+        </div>
+        <article class="dashboard-table-card">
+            <div class="dashboard-card-header">
+                <h3>Seed quality table</h3>
+            </div>
+            <div class="dashboard-table-wrap">
+                <table id="myTable2" class="display dashboard-table">
+                    <thead id="tableHeader2"></thead>
+                    <tbody id="tableBody2"></tbody>
+                </table>
+            </div>
+        </article>
+    </section>
+{% endblock %}
+
+{% block dashboard_scripts %}
+    <script src="{{ url_for('static', filename='js/public_dashboard.js') }}"></script>
+{% endblock %}

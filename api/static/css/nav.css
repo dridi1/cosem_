@@ -221,3 +221,285 @@ background: url('https://flagcdn.com/h20/mf.png');
 a{
     text-decoration: none;
 }
+
+/* Shared navbar refresh */
+.base_nav {
+    position: relative;
+    z-index: 20;
+}
+
+.marketing-shell .navbar {
+    padding: 0.9rem 1rem;
+    background: rgba(251, 248, 241, 0.82) !important;
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(39, 69, 44, 0.08);
+    box-shadow: 0 8px 30px rgba(27, 42, 31, 0.06);
+}
+
+.marketing-shell .navbar-scroll {
+    background: rgba(250, 246, 236, 0.94) !important;
+    box-shadow: 0 14px 40px rgba(27, 42, 31, 0.1);
+}
+
+.marketing-shell .container-fluid {
+    width: min(1280px, calc(100% - 1.5rem));
+    margin: 0 auto;
+    padding: 0;
+}
+
+.marketing-shell .navbar-brand {
+    gap: 0.9rem;
+    margin: 0;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    color: var(--grain-deep) !important;
+}
+
+.marketing-shell .navbar-brand img {
+    width: 64px;
+    height: 54px;
+    margin: 0;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 18px rgba(39, 69, 44, 0.12));
+}
+
+.marketing-shell .navbar-nav {
+    align-items: center;
+    gap: 0.3rem;
+    margin-left: 0;
+    width: auto;
+}
+
+.marketing-shell .nav-item {
+    padding: 0;
+}
+
+.marketing-shell .nav-link {
+    padding: 0.7rem 0.95rem !important;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--grain-muted) !important;
+    border-radius: 999px;
+}
+
+.marketing-shell .nav-link:hover,
+.marketing-shell .nav-link:focus-visible {
+    color: var(--grain-deep) !important;
+    background: rgba(39, 69, 44, 0.06);
+}
+
+.marketing-shell .services-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    min-width: 9rem;
+    min-height: 2.9rem;
+    border: 1px solid rgba(39, 69, 44, 0.12);
+    border-radius: 999px;
+    padding: 0.75rem 1.1rem !important;
+    font-size: 0.92rem;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--grain-deep) !important;
+    background: linear-gradient(135deg, rgba(217, 164, 65, 0.16), rgba(110, 139, 61, 0.16));
+    box-shadow: 0 10px 24px rgba(39, 69, 44, 0.08);
+}
+
+.marketing-shell .services-button::before {
+    display: none;
+}
+
+.marketing-shell .services-button:hover,
+.marketing-shell .services-button:focus-visible,
+.marketing-shell .dropdown:hover .services-button,
+.marketing-shell .dropdown.show .services-button {
+    box-shadow: 0 12px 26px rgba(39, 69, 44, 0.12);
+    background: linear-gradient(135deg, rgba(217, 164, 65, 0.28), rgba(110, 139, 61, 0.24));
+    color: var(--grain-deep) !important;
+}
+
+.marketing-shell .services-button i {
+    font-size: 0.95rem;
+    opacity: 0.8;
+}
+
+.marketing-shell .dropdown-menu {
+    margin-top: 0.7rem !important;
+    padding: 0.5rem;
+    background: rgba(255, 251, 245, 0.98);
+    border: 1px solid rgba(39, 69, 44, 0.1);
+    border-radius: 18px;
+    box-shadow: 0 18px 40px rgba(27, 42, 31, 0.12);
+}
+
+.marketing-shell .dropdown-menu .dropdown-item {
+    padding: 0.8rem 0.95rem;
+    border-radius: 12px;
+    font-weight: 700;
+    color: var(--grain-deep);
+}
+
+.marketing-shell .dropdown-menu .dropdown-item:hover {
+    background: rgba(39, 69, 44, 0.07);
+}
+
+.marketing-shell .nav-wrapper {
+    width: auto;
+    margin: 0 0 0 1rem;
+    text-align: left;
+}
+
+.marketing-shell .language-switch {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.3rem;
+    margin-left: 1rem;
+    border: 1px solid rgba(39, 69, 44, 0.1);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.72);
+    box-shadow: 0 10px 24px rgba(39, 69, 44, 0.08);
+}
+
+.marketing-shell .language-switch__option {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 5.5rem;
+    padding: 0.55rem 0.9rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--grain-muted);
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.marketing-shell .language-switch__option:hover,
+.marketing-shell .language-switch__option:focus-visible {
+    color: var(--grain-deep);
+    background: rgba(39, 69, 44, 0.06);
+}
+
+.marketing-shell .language-switch__option--active {
+    background: linear-gradient(135deg, rgba(217, 164, 65, 0.22), rgba(110, 139, 61, 0.18));
+    color: var(--grain-deep);
+    box-shadow: inset 0 0 0 1px rgba(39, 69, 44, 0.06);
+}
+
+.marketing-shell .sl-nav > ul > li {
+    padding: 0.8rem 1rem;
+    border: 1px solid rgba(39, 69, 44, 0.1);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.7);
+    font-weight: 700;
+}
+
+.marketing-shell .sl-nav li:hover ul {
+    top: calc(100% + 0.7rem);
+    right: 0;
+    width: 150px;
+    padding: 0.45rem;
+    background: rgba(255, 251, 245, 0.98);
+    border: 1px solid rgba(39, 69, 44, 0.1);
+    border-radius: 18px;
+    box-shadow: 0 18px 40px rgba(27, 42, 31, 0.12);
+}
+
+.marketing-shell .sl-nav li:hover .triangle {
+    display: none;
+}
+
+.marketing-shell .sl-nav li ul li {
+    padding: 0.7rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.92rem;
+    color: var(--grain-ink);
+}
+
+.marketing-shell .sl-nav li ul li:hover {
+    background: rgba(39, 69, 44, 0.06);
+}
+
+.marketing-shell .sl-nav li ul li span:hover,
+.marketing-shell .sl-nav li ul li span.active {
+    color: var(--grain-field);
+}
+
+.marketing-shell .sl-flag {
+    width: 16px;
+    height: 16px;
+    box-shadow: 0 0 0 2px rgba(39, 69, 44, 0.08);
+}
+
+.marketing-shell .navbar-collapse {
+    flex-grow: 1;
+}
+
+.marketing-shell .marketing-nav-panel {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.marketing-shell .marketing-nav-actions {
+    display: flex;
+    align-items: center !important;
+    gap: 0.75rem;
+    margin-left: 1rem;
+}
+
+@media (min-width: 992px) {
+    .marketing-shell .navbar-expand-lg .navbar-collapse {
+        display: flex !important;
+        flex-basis: auto;
+        visibility: visible;
+    }
+}
+
+@media (max-width: 991px) {
+    .marketing-shell .navbar {
+        padding: 0.75rem 0.4rem;
+    }
+
+    .marketing-shell .marketing-nav-panel {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+        padding-top: 0.75rem;
+    }
+
+    .marketing-shell .navbar-brand img {
+        width: 56px;
+        height: 48px;
+    }
+
+    .marketing-shell .navbar-nav {
+        align-items: flex-start;
+        gap: 0.2rem;
+        padding-top: 0.8rem;
+    }
+
+    .marketing-shell .d-flex {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 0.8rem;
+    }
+
+    .marketing-shell .marketing-nav-actions {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .marketing-shell .language-switch {
+        margin-left: 0;
+    }
+
+    .marketing-shell .nav-wrapper {
+        margin-left: 0;
+    }
+}

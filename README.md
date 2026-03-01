@@ -1,28 +1,85 @@
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fexamples%2Ftree%2Fmain%2Fpython%2Fflask3&demo-title=Flask%203%20%2B%20Vercel&demo-description=Use%20Flask%203%20on%20Vercel%20with%20Serverless%20Functions%20using%20the%20Python%20Runtime.&demo-url=https%3A%2F%2Fflask3-python-template.vercel.app%2F&demo-image=https://assets.vercel.com/image/upload/v1669994156/random/flask.png)
+# COSEM Dashboard
 
-# Flask + Vercel
+Flask application for COSEM's public pages, authentication flows, and private crop analysis dashboards.
 
-This example shows how to use Flask 3 on Vercel with Serverless Functions using the [Python Runtime](https://vercel.com/docs/concepts/functions/serverless-functions/runtimes/python).
+## Configuration
 
-## Demo
+Set these environment variables before starting the app:
 
-https://flask-python-template.vercel.app/
+```bash
+SECRET_KEY=replace-me
+DATABASE_URL=postgresql://user:password@host:5432/dbname
+```
 
-## How it Works
-
-This example uses the Web Server Gateway Interface (WSGI) with Flask to enable handling requests on Vercel with Serverless Functions.
+If `DATABASE_URL` is not set locally, the app falls back to a SQLite database at `api/cosem.db`.
 
 ## Running Locally
 
+Install dependencies and start the Flask app directly:
+
 ```bash
-npm i -g vercel
-vercel dev
+pip install -r requirements.txt
+python run.py
 ```
 
-Your Flask application is now available at `http://localhost:3000`.
+The development server listens on `http://127.0.0.1:8009`.
 
-## One-Click Deploy
+You can also run the package entrypoint with:
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=vercel-examples):
+```bash
+python -m api.index
+```
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fexamples%2Ftree%2Fmain%2Fpython%2Fflask3&demo-title=Flask%203%20%2B%20Vercel&demo-description=Use%20Flask%203%20on%20Vercel%20with%20Serverless%20Functions%20using%20the%20Python%20Runtime.&demo-url=https%3A%2F%2Fflask3-python-template.vercel.app%2F&demo-image=https://assets.vercel.com/image/upload/v1669994156/random/flask.png)
+## Testing
+
+Run the regression tests with:
+
+```bash
+python -m unittest discover -s tests
+```
+
+## Linting and Formatting
+
+Install developer tooling with:
+
+```bash
+pip install -r requirements-dev.txt
+```
+
+Then run:
+
+```bash
+ruff check .
+black --check .
+```
+
+If you want local hooks before each commit:
+
+```bash
+pre-commit install
+```
+
+## Tailwind CSS
+
+Tailwind is now wired into the shared Flask layouts.
+
+The intended local workflow is:
+
+```bash
+npm install
+npm run build:tailwind
+```
+
+For live rebuilding during UI work:
+
+```bash
+npm run watch:tailwind
+```
+
+The Tailwind source file is [api/static/css/tailwind.input.css](D:/cosem_/api/static/css/tailwind.input.css), and the generated output should be written to [api/static/css/tailwind.css](D:/cosem_/api/static/css/tailwind.css).
+
+In this environment, npm registry access is unavailable, so the templates also include a temporary CDN fallback for Tailwind utilities until local packages can be installed.
+
+## Deployment
+
+`vercel.json` rewrites all routes to `api/index.py`, so the deployed app runs through the Flask entrypoint under `api/`.
