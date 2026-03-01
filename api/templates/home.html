@@ -3,15 +3,15 @@
 {% block title %}Home Page{% endblock %}
 
 {% block content %}
-    <main class="tw-page-shell overflow-hidden" id="home">
-        <section class="hero relative isolate min-h-[92vh] overflow-hidden bg-cover bg-center">
+    <main class="tw-page-shell overflow-hidden pt-[3.25rem] sm:pt-[3.75rem]" id="home">
+        <section class="hero relative isolate min-h-[calc(100vh-3.25rem)] overflow-hidden bg-cover bg-center sm:min-h-[calc(100vh-3.75rem)]">
             <div class="hero-slideshow absolute inset-0">
                 <div class="hero-slide is-active" style="background-image: url('https://i.postimg.cc/XJXGG887/crop-fuild.jpg');"></div>
                 <div class="hero-slide" style="background-image: url('https://i.postimg.cc/VNKDnmx9/crop-fuild2-1.jpg');"></div>
                 <div class="hero-slide" style="background-image: url('https://i.postimg.cc/PxcyVKrP/crop-fuild2-2.jpg');"></div>
             </div>
             <div class="hero-shade absolute inset-0"></div>
-            <div class="tw-page-container relative flex min-h-[92vh] items-center px-4 pb-16 pt-32 sm:px-6 lg:px-8 lg:pt-36">
+            <div class="tw-page-container relative flex min-h-[calc(100vh-3.25rem)] items-center px-4 pb-16 pt-32 sm:min-h-[calc(100vh-3.75rem)] sm:px-6 lg:px-8 lg:pt-36">
                 <div class="w-full">
                     <div class="mx-auto max-w-3xl text-center">
                         <span class="inline-flex rounded-full border border-white/15 bg-white/10 px-4 py-2 font-display text-xs font-bold uppercase tracking-[0.28em] text-white/80 backdrop-blur">
@@ -23,7 +23,7 @@
                         <p class="mt-6 max-w-2xl text-lg leading-8 text-white/78 sm:text-xl">
                             Access public infographics, compare cereal groups, and move into a private workspace to analyze your own land with a cleaner workflow.
                         </p>
-                        <div class="mt-8 flex flex-wrap gap-4">
+                        <div class="mt-8 flex flex-wrap justify-center gap-4">
                             <a href="#about" class="tw-primary-btn">Get Started</a>
                             <a href="{{ url_for('dashboard.public_dashboard') }}" class="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-6 py-3 font-bold text-white backdrop-blur transition hover:bg-white/16">
                                 View Public Dashboard

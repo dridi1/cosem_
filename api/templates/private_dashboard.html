@@ -4,6 +4,7 @@
 {% set home_endpoint = "main.home" %}
 {% set dashboard_endpoint = "dashboard.private_dashboard" %}
 {% set analyze_endpoint = "dashboard.analyze" %}
+{% set show_header = false %}
 {% set logout_endpoint = "auth.logout" %}
 {% set active_section = "dashboard" %}
 {% set dashboard_label = "Dashboard" %}
@@ -17,6 +18,10 @@
 {% endblock %}
 
 {% block dashboard_content %}
+    <div class="dashboard-mobile-home">
+        <a href="{{ url_for('main.home') }}" class="dashboard-mobile-home__link">Back home</a>
+    </div>
+
     <div class="two">
         <h1>Firme de Krib:</h1>
     </div>

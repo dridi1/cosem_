@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+﻿document.addEventListener("DOMContentLoaded", () => {
     initializeNavbar();
     initializeStaticDashboard();
     initializeAnalyzePage();
@@ -32,6 +32,20 @@ function hasRequiredElements(ids) {
     return ids.every((id) => document.getElementById(id));
 }
 
+function registerResponsivePlots(ids) {
+    const resizePlots = () => {
+        ids.forEach((id) => {
+            const element = document.getElementById(id);
+            if (element && window.Plotly) {
+                Plotly.Plots.resize(element);
+            }
+        });
+    };
+
+    window.addEventListener("resize", resizePlots);
+    window.setTimeout(resizePlots, 150);
+}
+
 async function loadKribData() {
     const response = await fetch("/static/Firme_de_Krib.csv");
     const csvText = await response.text();
@@ -40,8 +54,8 @@ async function loadKribData() {
 
 function getColorMap() {
     return {
-        "BlÃ© dur": "#00441b",
-        "BlÃ© tendre": "#006d2c",
+        "Blé dur": "#00441b",
+        "Blé tendre": "#006d2c",
         "Orge": "#31a354",
         Triticale: "#a1d99b",
         Autres: "#c2c2c2",
@@ -56,8 +70,8 @@ async function initializeStaticDashboard() {
     const rows = await loadKribData();
     const colorMap = getColorMap();
     const labels = rows.map((item) => item["Type Groupe"]);
-    const superficie = rows.map((item) => parseFloat(item["Superficie semÃ©e (ha)"]) || 0);
-    const quantites = rows.map((item) => parseFloat(item["QuantitÃ©s collectÃ©es (q)"]) || 0);
+    const superficie = rows.map((item) => parseFloat(item["Superficie semée (ha)"]) || 0);
+    const quantites = rows.map((item) => parseFloat(item["Quantités collectées (q)"]) || 0);
     const rendement = rows.map((item) => parseFloat(item["Rendement (q/ha)"]) || 0);
     const colors = labels.map((label) => colorMap[label] || "#d3d3d3");
 
@@ -116,6 +130,8 @@ async function initializeStaticDashboard() {
         yaxis: { title: "Yield (q/ha)" },
         barmode: "group",
     });
+
+    registerResponsivePlots(["pieChart", "barChart", "pieChart1", "barChart1"]);
 
     renderDataTable(rows, "myTable1", "tableHeader1", "tableBody1");
 }
@@ -253,3 +269,4 @@ function initializeAnalyzeButton() {
         }, 500);
     });
 }
+

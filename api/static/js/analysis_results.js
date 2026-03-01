@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+﻿document.addEventListener("DOMContentLoaded", () => {
     initializeNavbar();
     initializeCharts();
 });
@@ -38,12 +38,26 @@ function getQueryParams() {
 
 function getColorMap() {
     return {
-        "BlÃ© dur": "#00441b",
-        "BlÃ© tendre": "#006d2c",
+        "BlÃƒÂ© dur": "#00441b",
+        "BlÃƒÂ© tendre": "#006d2c",
         "Orge": "#31a354",
         Triticale: "#a1d99b",
         Autres: "#c2c2c2",
     };
+}
+
+function registerResponsivePlots(ids) {
+    const resizePlots = () => {
+        ids.forEach((id) => {
+            const element = document.getElementById(id);
+            if (element && window.Plotly) {
+                Plotly.Plots.resize(element);
+            }
+        });
+    };
+
+    window.addEventListener("resize", resizePlots);
+    window.setTimeout(resizePlots, 150);
 }
 
 function initializeCharts() {
@@ -123,6 +137,8 @@ function initializeCharts() {
         yaxis: { title: "Yield (q/ha)" },
         barmode: "group",
     });
+
+    registerResponsivePlots(["pieChart", "barChart", "pieChart1", "barChart1"]);
 }
 
 function normalizeValues(values) {

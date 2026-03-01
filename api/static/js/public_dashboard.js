@@ -81,6 +81,20 @@ function fetchAndDisplayCSV(url, tableId, theadId, tbodyId) {
         .catch(error => console.error('Error fetching the CSV file:', error));
 }
 
+function registerResponsivePlots(ids) {
+    const resizePlots = () => {
+        ids.forEach((id) => {
+            const element = document.getElementById(id);
+            if (element && window.Plotly) {
+                Plotly.Plots.resize(element);
+            }
+        });
+    };
+
+    window.addEventListener('resize', resizePlots);
+    window.setTimeout(resizePlots, 150);
+}
+
 // Call the function with the paths to your CSV files
 fetchAndDisplayCSV('static/2022_2023data.csv', 'myTable1', 'tableHeader1', 'tableBody1');
 fetchAndDisplayCSV('static/qualite_semence.csv', 'myTable2', 'tableHeader2', 'tableBody2');
@@ -153,7 +167,7 @@ async function createChoropleth() {
         margin: { r: 0, t: 60, l: 0, b: 0 }
     };
 
-    Plotly.newPlot('maptn', mapData, layout);
+    Plotly.newPlot('maptn', mapData, layout, { responsive: true });
 }
 
 createChoropleth();
@@ -456,3 +470,14 @@ function createPieChart(typeCulture, elementId) {
 createPieChart('Blé dur', 'ble-dur-chart');
 createPieChart('Blé tendre', 'ble-tendre-chart');
 createPieChart('Orge et triticale', 'orge-triticale-chart');
+
+registerResponsivePlots([
+    'maptn',
+    'histogramtn',
+    'barcharttn',
+    'histogram-2023',
+    'pie-2023',
+    'ble-dur-chart',
+    'ble-tendre-chart',
+    'orge-triticale-chart'
+]);

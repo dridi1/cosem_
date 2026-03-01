@@ -4,6 +4,7 @@
 {% set home_endpoint = "main.home_fr" %}
 {% set dashboard_endpoint = "dashboard.private_dashboard_fr" %}
 {% set analyze_endpoint = "dashboard.analyse_fr" %}
+{% set show_header = false %}
 {% set logout_endpoint = "auth.logout_fr" %}
 {% set active_section = "analyze" %}
 {% set dashboard_label = "Tableau de bord" %}
@@ -17,6 +18,10 @@
 {% endblock %}
 
 {% block dashboard_content %}
+    <div class="dashboard-mobile-home">
+        <a href="{{ url_for('main.home_fr') }}" class="dashboard-mobile-home__link">Accueil</a>
+    </div>
+
     <div class="two">
         <h1>Mettez en valeur votre propre terrain:</h1>
     </div>
