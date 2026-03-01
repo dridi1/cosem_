@@ -5,6 +5,10 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent
 
 
+def is_vercel_environment():
+    return bool(os.getenv("VERCEL")) or bool(os.getenv("VERCEL_ENV"))
+
+
 def is_production_environment():
     return os.getenv("VERCEL_ENV") == "production" or os.getenv("FLASK_ENV") == "production"
 
@@ -19,11 +23,13 @@ def get_secret_key():
 
 
 def get_database_uri():
-    database_uri = os.getenv("DATABASE_URL")
+    database_uri = os.getenv("DATABASE_URL") or os.getenv("POSTGRES_URL")
     if database_uri and database_uri.startswith("postgres://"):
         return database_uri.replace("postgres://", "postgresql://", 1)
     if database_uri:
         return database_uri
+    if is_vercel_environment() or is_production_environment():
+        raise RuntimeError("DATABASE_URL or POSTGRES_URL environment variable is required on Vercel/production.")
     return f"sqlite:///{BASE_DIR / 'cosem.db'}"
 
 
