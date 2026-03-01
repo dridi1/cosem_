@@ -11,6 +11,8 @@ SECRET_KEY=replace-me
 DATABASE_URL=postgresql://user:password@host:5432/dbname
 ```
 
+
+
 If `DATABASE_URL` is not set locally, the app falls back to a SQLite database at `api/cosem.db`.
 
 ## Running Locally
